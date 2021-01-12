@@ -1,0 +1,8 @@
+com\basic\resources\ErrorPage.class
+com\basic\resources\RestControllerTester.class
+com\basic\beans\Request.class
+com\basic\config\AppConfig.class
+com\basic\BasicApplication.class
+com\basic\dao\RemisionDao.class
+com\basic\resources\ErrorController.class
+com\basic\beans\Response.class
