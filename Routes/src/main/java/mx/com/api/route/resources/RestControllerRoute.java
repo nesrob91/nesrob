@@ -80,11 +80,11 @@ public class RestControllerRoute {
         ResponseRuta ruta= new ResponseRuta();
         if(rutaSelect.validateRequest(req, 1)){
             //ruta=rutaSelect.generateRoute(req);
-            resp.setMensaje("Dummy");
-            resp.setCodigo("0");
+            ruta.setMensaje("Dummy");
+            ruta.setEstatus(0);
         }else{
-            resp.setMensaje("Verifique peticion");
-            resp.setCodigo("-1");
+            ruta.setMensaje("Verifique peticion");
+            ruta.setEstatus(-1);
         }
         ResponseEntity re = null;
         if(ruta.getEstatus()==1)

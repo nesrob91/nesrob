@@ -39,7 +39,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(BindException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    protected ResponseEntity<Object> handleBindException(BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleBindException(BindException ex, HttpServletRequest request) {
         String error = "Binding exception " + ex.getMessage() + ". " + ex.getNestedPath();
         Response apiError = new Response();
         apiError.setCodigo("-1");
@@ -50,7 +50,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpServletRequest request) {
         String error = "No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL();
         Response apiError = new Response();
         apiError.setCodigo("-1");
@@ -72,7 +72,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(ServletRequestBindingException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    protected ResponseEntity<Object> handleServletRequestBindingException(ServletRequestBindingException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleServletRequestBindingException(ServletRequestBindingException ex, HttpServletRequest request) {
         String error="Binding not found. "+ex.getMessage()+". "+request.getContextPath();
         Response apiError = new Response();
         apiError.setCodigo("-1");
@@ -83,8 +83,8 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        String error="Request Body not found. "+status.toString();
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpServletRequest request) {
+        String error="Request Body not found. ";
         Response apiError = new Response();
         apiError.setCodigo("-1");
         apiError.setMensaje(error);
@@ -94,8 +94,8 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
-    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        String error="Method not supported. "+ex.getMethod()+". "+request.getContextPath();
+    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
+        String error="Method not supported. "+ex.getMethod()+". "+request.getRequestURI();
         //error+=" "+ex.getMessage()+" "+request.getDescription(true);
         Response apiError = new Response();
         apiError.setCodigo("-1");
@@ -106,8 +106,8 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.PARTIAL_CONTENT)
-    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        String error = "Missing parameter... "+ex.getParameterName()+". "+status.toString()+". "+ex.getMessage();
+    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpServletRequest request) {
+        String error = "Missing parameter... "+ex.getParameterName()+". ";
         Response apiError = new Response();
         apiError.setCodigo("-1");
         apiError.setMensaje(error);
@@ -117,8 +117,8 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(MissingPathVariableException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.PARTIAL_CONTENT)
-    protected ResponseEntity<Object> handleMissingPathVariable(MissingPathVariableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        String error = "Missing variable... "+ex.getVariableName()+". "+status.toString()+". "+ex.getMessage();
+    protected ResponseEntity<Object> handleMissingPathVariable(MissingPathVariableException ex, HttpServletRequest request) {
+        String error = "Missing variable... "+ex.getVariableName()+". ";
         Response apiError = new Response();
         apiError.setCodigo("-1");
         apiError.setMensaje(error);
@@ -128,8 +128,8 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(MissingServletRequestPartException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.PARTIAL_CONTENT)
-    protected ResponseEntity<Object> handleMissingServletRequestPart(MissingServletRequestPartException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        String error = "Missing body... "+ex.getRequestPartName()+". "+status.toString()+". "+ex.getMessage();
+    protected ResponseEntity<Object> handleMissingServletRequestPart(MissingServletRequestPartException ex, HttpServletRequest request) {
+        String error = "Missing part... "+ex.getRequestPartName()+". ";
         Response apiError = new Response();
         apiError.setCodigo("-1");
         apiError.setMensaje(error);
