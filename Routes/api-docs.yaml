@@ -1,0 +1,265 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8443/
+  description: Generated server url
+paths:
+  /wsRuta/ruta/estatus:
+    put:
+      tags:
+      - rest-controller-route
+      operationId: statusRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+  /wsRuta/ruta/cancelar:
+    post:
+      tags:
+      - rest-controller-route
+      operationId: cancelRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+  /wsRuta/ruta:
+    post:
+      tags:
+      - rest-controller-route
+      operationId: createRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /wsRuta:
+    get:
+      tags:
+      - rest-controller-route
+      operationId: index
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+  /wsRuta/:
+    get:
+      tags:
+      - rest-controller-route
+      operationId: index_1
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+  /wsRuta/ruta/documento:
+    get:
+      tags:
+      - rest-controller-route
+      operationId: getDocRoute
+      parameters:
+      - name: req
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Request'
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+  /wsRuta/estatus:
+    get:
+      tags:
+      - rest-controller-validation
+      operationId: createRoute_1
+      parameters:
+      - name: req
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Request'
+      responses:
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Response'
+components:
+  schemas:
+    FoliosResponse:
+      type: object
+      properties:
+        folio:
+          type: array
+          items:
+            $ref: '#/components/schemas/folio'
+    Response:
+      type: object
+      properties:
+        idPeticion:
+          type: integer
+          format: int64
+        estatus:
+          type: integer
+          format: int32
+        mensaje:
+          type: string
+        ruta:
+          type: array
+          items:
+            type: string
+        numGuia:
+          type: string
+        documento:
+          type: string
+        carrier:
+          type: string
+        folios:
+          $ref: '#/components/schemas/FoliosResponse'
+        error:
+          type: boolean
+        code:
+          type: string
+        folEnvio:
+          type: integer
+          format: int32
+    folio:
+      type: object
+      properties:
+        remision:
+          type: string
+        ruta:
+          type: string
+        resultado:
+          type: string
+    Request:
+      required:
+      - folios
+      - idCentro
+      type: object
+      properties:
+        idPeticion:
+          type: integer
+          format: int64
+        idCentro:
+          type: integer
+          format: int32
+        folios:
+          type: array
+          items:
+            type: string
+        idTransporte:
+          type: integer
+          format: int32
+        idUnidad:
+          type: integer
+          format: int32
+        largo:
+          type: number
+          format: double
+        alto:
+          type: number
+          format: double
+        ancho:
+          type: number
+          format: double
+        peso:
+          type: number
+          format: double
+        estatus:
+          type: string
+        fecha:
+          type: string
+        tipoRuta:
+          type: integer
+          format: int32
+        motivo:
+          type: integer
+          format: int32
+        secuencia:
+          type: integer
+          format: int32
+        external:
+          type: boolean
+        estibador:
+          type: string
+        checador:
+          type: string
