@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/wsRuta")
 public class RestControllerValidation {
     
-    @GetMapping("/estatus")
+    @GetMapping("/consultas/estatus")
     public Response createRoute(@RequestBody(required = true) Request req){
         Response resp = new Response();
         resp.setMensaje("validacion");

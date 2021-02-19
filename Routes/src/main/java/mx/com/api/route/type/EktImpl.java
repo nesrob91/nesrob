@@ -7,6 +7,7 @@ package mx.com.api.route.type;
 
 import java.util.List;
 import mx.com.api.route.beans.Response;
+import mx.com.api.route.beans.ResponseRuta;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class EktImpl implements RutaIfc{
 
     @Override
-    public Response generateFolRut(int origen, int folioEnvio, List<Integer> rem, int idTransporte, int eco, int tipRuta, Integer mtvo, int sec, String sello, String checador, String estibador, boolean isExternal) {
+    public ResponseRuta generateFolRut(int origen, int folioEnvio, List<Integer> rem, int idTransporte, int eco, int tipRuta, Integer mtvo, int sec, String sello, String checador, String estibador, boolean isExternal) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

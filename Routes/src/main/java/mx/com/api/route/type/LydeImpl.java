@@ -29,6 +29,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Base64;
 import java.util.HashMap;
+import mx.com.api.route.beans.ResponseRuta;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 /**
@@ -52,8 +53,8 @@ public class LydeImpl implements RutaIfc{
     private NamedParameterJdbcTemplate sccpConnection;
     
     @Override
-    public Response generateFolRut(int origen, int folioLyde, List<Integer> rem, int idTransporte, int eco, int tipRuta, Integer mtvo, int sec, String sello, String checador, String estibador, boolean isExternal){
-        Response resp = new Response();
+    public ResponseRuta generateFolRut(int origen, int folioLyde, List<Integer> rem, int idTransporte, int eco, int tipRuta, Integer mtvo, int sec, String sello, String checador, String estibador, boolean isExternal){
+        ResponseRuta resp = new ResponseRuta();
         Usuario user = generalService.getInfoUsuario(1002);//2250
         if(user!=null){
             if(!user.getUSUARIO().equals("ERROR")){

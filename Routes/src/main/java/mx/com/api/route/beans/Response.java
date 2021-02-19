@@ -18,17 +18,10 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response {
-    private Long idPeticion;
-    private Integer estatus;
+    private String codigo;
     private String mensaje;
-    private List<String> ruta;
-    private String numGuia;
-    private String documento;
-    private String carrier;
-    private FoliosResponse folios;
-    private Boolean error;
-    private String code;
-    private Integer folEnvio;
+    private String folio;
+    private Object resultado;
     
     public Response() {
     }

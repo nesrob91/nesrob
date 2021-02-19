@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mx.com.api.route.beans.Request;
 import mx.com.api.route.beans.Response;
+import mx.com.api.route.beans.ResponseRuta;
 import mx.com.api.route.service.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -75,8 +76,8 @@ public class TypeSelector {
         return valid;
     }
     
-    public Response generateRoute(Request request){
-        Response resp=new Response();
+    public ResponseRuta generateRoute(Request request){
+        ResponseRuta resp=new ResponseRuta();
         try{
             int cd = (request.getIdCentro()>999?request.getIdCentro():generales.getIdSapAlmn(request.getIdCentro()));
             List<Integer> rems=new ArrayList<>();

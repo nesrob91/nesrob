@@ -7,6 +7,7 @@ package mx.com.api.route.Controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import mx.com.api.route.beans.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,8 @@ public class ErrorPage {
 
     @GetMapping
     @ResponseBody
-    ResponseEntity<?> handleControllerException(HttpServletRequest request, Exception e, Throwable ex) {
-        HttpStatus status = getStatus(request);
+    ResponseEntity<?> handleControllerException(HttpServletRequest request, HttpServletResponse response, Exception e, Throwable ex) {
+        HttpStatus status = getStatusResponse(response);
         String error;
         switch(status.value()){
             case 404:
@@ -38,13 +39,20 @@ public class ErrorPage {
                 break;
         }
         Response apiError = new Response();
-        apiError.setEstatus(-1);
+        apiError.setCodigo("-1");
         apiError.setMensaje(error);
         return new ResponseEntity<>(apiError, HttpStatus.OK);
     }
 
-    private HttpStatus getStatus(HttpServletRequest request) {
+    private HttpStatus getStatusRequest(HttpServletRequest request) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        if (statusCode == null) {
+            return HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+        return HttpStatus.valueOf(statusCode);
+    }
+    private HttpStatus getStatusResponse(HttpServletResponse response) {
+        Integer statusCode = (Integer) response.getStatus();
         if (statusCode == null) {
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }

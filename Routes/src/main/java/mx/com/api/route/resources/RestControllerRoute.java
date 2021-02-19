@@ -13,6 +13,7 @@ import mx.com.api.route.beans.FolioResponse;
 import mx.com.api.route.beans.FoliosResponse;
 import mx.com.api.route.beans.Request;
 import mx.com.api.route.beans.Response;
+import mx.com.api.route.beans.ResponseRuta;
 import mx.com.api.route.service.GeneralService;
 import mx.com.api.route.type.TypeSelector;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,12 +53,14 @@ public class RestControllerRoute {
     @GetMapping(path = {"","/"})
     public Response index(){
         Response resp = new Response();
-        resp.setEstatus(0);
-        resp.setCode("0: Procesado correctamente, 1: Procesado con errores, -1: No procesado");
-        resp.setMensaje("API Ruta, Response Description");
+        ResponseRuta ruta= new ResponseRuta();
+        resp.setCodigo("0");
+        resp.setMensaje("Descriptor");
+        ruta.setCode("0: Procesado correctamente, 1: Procesado con errores, -1: No procesado");
+        ruta.setMensaje("API Ruta, Response Description");
             List<String> rutas=new ArrayList<>();
             rutas.add("Folio de ruta");
-        resp.setRuta(rutas);
+        ruta.setRuta(rutas);
             FoliosResponse fols=new FoliosResponse();
                 List<FolioResponse> folsList=new ArrayList<>();
                     FolioResponse fol=new FolioResponse();
@@ -65,32 +68,34 @@ public class RestControllerRoute {
                     fol.setResultado("Resultado de procesamiento");
                 folsList.add(fol);
             fols.setFolio(folsList);
-        resp.setFolios(fols);
+        ruta.setFolios(fols);
+        resp.setResultado(rutas);
         return resp;
     }
     
-    @PostMapping(path = "/ruta", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/ruta/creacion", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response> createRoute(@RequestBody(required = true) Request req){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
+        ResponseRuta ruta= new ResponseRuta();
         if(rutaSelect.validateRequest(req, 1)){
-            //resp=rutaSelect.generateRoute(req);
+            //ruta=rutaSelect.generateRoute(req);
             resp.setMensaje("Dummy");
-            resp.setEstatus(0);
+            resp.setCodigo("0");
         }else{
             resp.setMensaje("Verifique peticion");
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
         ResponseEntity re = null;
-        if(resp.getEstatus()==1)
+        if(ruta.getEstatus()==1)
             re = new ResponseEntity(resp, HttpStatus.MULTI_STATUS);
-        if(resp.getEstatus()==0)
+        if(ruta.getEstatus()==0)
             re = new ResponseEntity(resp, HttpStatus.OK);
-        if(resp.getEstatus()==-2){
+        if(ruta.getEstatus()==-2){
             re = new ResponseEntity(resp, HttpStatus.INTERNAL_SERVER_ERROR);
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
-        if(resp.getEstatus()==-1)
+        if(ruta.getEstatus()==-1)
             re = new ResponseEntity(resp, HttpStatus.BAD_REQUEST);
         return re;
     }
@@ -99,22 +104,23 @@ public class RestControllerRoute {
     public ResponseEntity<Response> getDocRoute(@RequestBody(required = true) Request req){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
+        ResponseRuta ruta= new ResponseRuta();
         if(rutaSelect.validateRequest(req, 2)){
-            resp=rutaSelect.generateRoute(req);
+            ruta=rutaSelect.generateRoute(req);
         }else{
             resp.setMensaje("Verifique peticion");
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
         ResponseEntity re = null;
-        if(resp.getEstatus()==1)
+        if(ruta.getEstatus()==1)
             re = new ResponseEntity(resp, HttpStatus.MULTI_STATUS);
-        if(resp.getEstatus()==0)
+        if(ruta.getEstatus()==0)
             re = new ResponseEntity(resp, HttpStatus.OK);
-        if(resp.getEstatus()==-2){
+        if(ruta.getEstatus()==-2){
             re = new ResponseEntity(resp, HttpStatus.INTERNAL_SERVER_ERROR);
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
-        if(resp.getEstatus()==-1)
+        if(ruta.getEstatus()==-1)
             re = new ResponseEntity(resp, HttpStatus.BAD_REQUEST);
         return re;
     }
@@ -123,22 +129,23 @@ public class RestControllerRoute {
     public ResponseEntity<Response> cancelRoute(@RequestBody(required = true) Request req ){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
+        ResponseRuta ruta= new ResponseRuta();
         if(rutaSelect.validateRequest(req, 3)){
-            resp=rutaSelect.generateRoute(req);
+            ruta=rutaSelect.generateRoute(req);
         }else{
             resp.setMensaje("Verifique peticion");
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
         ResponseEntity re = null;
-        if(resp.getEstatus()==1)
+        if(ruta.getEstatus()==1)
             re = new ResponseEntity(resp, HttpStatus.MULTI_STATUS);
-        if(resp.getEstatus()==0)
+        if(ruta.getEstatus()==0)
             re = new ResponseEntity(resp, HttpStatus.OK);
-        if(resp.getEstatus()==-2){
+        if(ruta.getEstatus()==-2){
             re = new ResponseEntity(resp, HttpStatus.INTERNAL_SERVER_ERROR);
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
-        if(resp.getEstatus()==-1)
+        if(ruta.getEstatus()==-1)
             re = new ResponseEntity(resp, HttpStatus.BAD_REQUEST);
         return re;
     }
@@ -147,22 +154,23 @@ public class RestControllerRoute {
     public ResponseEntity<Response> statusRoute(@RequestBody(required = true) Request req ){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
+        ResponseRuta ruta= new ResponseRuta();
         if(rutaSelect.validateRequest(req, 4)){
-            resp=rutaSelect.generateRoute(req);
+            ruta=rutaSelect.generateRoute(req);
         }else{
             resp.setMensaje("Verifique peticion");
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
         ResponseEntity re = null;
-        if(resp.getEstatus()==1)
+        if(ruta.getEstatus()==1)
             re = new ResponseEntity(resp, HttpStatus.MULTI_STATUS);
-        if(resp.getEstatus()==0)
+        if(ruta.getEstatus()==0)
             re = new ResponseEntity(resp, HttpStatus.OK);
-        if(resp.getEstatus()==-2){
+        if(ruta.getEstatus()==-2){
             re = new ResponseEntity(resp, HttpStatus.INTERNAL_SERVER_ERROR);
-            resp.setEstatus(-1);
+            resp.setCodigo("-1");
         }
-        if(resp.getEstatus()==-1)
+        if(ruta.getEstatus()==-1)
             re = new ResponseEntity(resp, HttpStatus.BAD_REQUEST);
         return re;
     }
