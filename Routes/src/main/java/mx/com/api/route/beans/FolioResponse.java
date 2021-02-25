@@ -8,6 +8,7 @@ package mx.com.api.route.beans;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -17,10 +18,13 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonRootName("folio")
+@Schema(name = "FolioPeticion")
 public class FolioResponse {
+    @Schema(description = "Folio de remision enviado")
     private String remision;
+    @Schema(description = "Folio de ruta enviado")
     private String ruta;
+    @Schema(description = "Mensaje de procesamiento")
     private String resultado;
     
 }

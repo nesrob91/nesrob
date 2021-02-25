@@ -8,7 +8,7 @@ package mx.com.api.route.service;
 import com.elektra.cadsumutils.logs.error.LogsPaqueterias;
 import java.util.ArrayList;
 import java.util.List;
-import mx.com.api.route.beans.ConfigBean;
+import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.dao.RemisionDao;
 import mx.com.api.route.beans.DetalleRem;
 import mx.com.api.route.beans.Remision;

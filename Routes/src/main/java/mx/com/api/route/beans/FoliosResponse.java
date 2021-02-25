@@ -7,6 +7,7 @@ package mx.com.api.route.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import lombok.Data;
 
@@ -17,7 +18,9 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Schema(name = "FoliosPeticion")
 public class FoliosResponse {
+    @Schema(description = "Folios enviados")
     private List<FolioResponse> folio;
     
 }

@@ -8,7 +8,8 @@ package mx.com.api.route.configuration;
 import com.elektra.cadsumutils.dao.DataSources;
 import com.elektra.cadsumutils.logs.error.LogsPaqueterias;
 import java.util.concurrent.atomic.AtomicLong;
-import mx.com.api.route.beans.ConfigBean;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -23,6 +24,11 @@ public class AppConf {
     ConfigBean configuration(){
         return new ConfigBean();
     }
+    
+    @Bean
+    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer() {
+        return factory -> factory.setContextPath("/wsRuta");
+    };
     
     @Bean
     AtomicLong idRequest(){

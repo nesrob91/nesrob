@@ -4,11 +4,24 @@
  * and open the template in the editor.
  */
 package mx.com.api.route.resources;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.servers.Server;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.PostConstruct;
-import mx.com.api.route.beans.ConfigBean;
+import javax.validation.Valid;
+import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.FolioResponse;
 import mx.com.api.route.beans.FoliosResponse;
 import mx.com.api.route.beans.Request;
@@ -33,7 +46,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author nroblerol
  */
 @RestController
-@RequestMapping("/wsRuta")
+@RequestMapping("/v1")
+@OpenAPIDefinition(info = @Info(title = "WS_ROUTE_MGT", version = "1.0"), servers = @Server(url = "http://localhost:8443/wsRuta/v1",description = "API Route Management"))
 public class RestControllerRoute {
     @Autowired
     private ConfigBean configuration;
@@ -49,32 +63,35 @@ public class RestControllerRoute {
         String s=generalService.getRequestCount();
         idRequest=new AtomicLong(new Long(s));
     }
-    
-    @GetMapping(path = {"","/"})
+
+    @ApiResponses(value = {@ApiResponse(description = "Index", content = @Content(schema = @Schema(implementation = Request.class)))})
+    @GetMapping(path = {"","/"}, consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response index(){
         Response resp = new Response();
-        ResponseRuta ruta= new ResponseRuta();
-        resp.setCodigo("0");
+        resp.setCodigo("0 procesado, 1 No procesado");
         resp.setMensaje("Descriptor");
-        ruta.setCode("0: Procesado correctamente, 1: Procesado con errores, -1: No procesado");
-        ruta.setMensaje("API Ruta, Response Description");
-            List<String> rutas=new ArrayList<>();
-            rutas.add("Folio de ruta");
-        ruta.setRuta(rutas);
-            FoliosResponse fols=new FoliosResponse();
-                List<FolioResponse> folsList=new ArrayList<>();
-                    FolioResponse fol=new FolioResponse();
-                    fol.setRuta("Folio enviado");
-                    fol.setResultado("Resultado de procesamiento");
-                folsList.add(fol);
-            fols.setFolio(folsList);
-        ruta.setFolios(fols);
-        resp.setResultado(rutas);
+            ResponseRuta ruta= new ResponseRuta();
+            ruta.setCode("0: Procesado correctamente, 1: Procesado con errores, -1: No procesado");
+            ruta.setMensaje("API Ruta, Response Description");
+                List<String> rutas=new ArrayList<>();
+                rutas.add("Folio de ruta");
+            ruta.setRuta(rutas);
+                FoliosResponse fols=new FoliosResponse();
+                    List<FolioResponse> folsList=new ArrayList<>();
+                        FolioResponse fol=new FolioResponse();
+                        fol.setRemision("Folio(Remision) enviado");
+                        fol.setRuta("Folio(Ruta) enviado");
+                        fol.setResultado("Resultado de procesamiento");
+                    folsList.add(fol);
+                fols.setFolio(folsList);
+            ruta.setFolios(fols);
+        resp.setResultado(ruta);
         return resp;
     }
     
+    @Operation(summary = "Create Route given Remision fols")
     @PostMapping(path = "/ruta/creacion", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response> createRoute(@RequestBody(required = true) Request req){
+    public ResponseEntity<Response> createRoute(@Valid @RequestBody(required = true) Request req){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
         ResponseRuta ruta= new ResponseRuta();
@@ -100,8 +117,9 @@ public class RestControllerRoute {
         return re;
     }
     
-    @GetMapping("/ruta/documento")
-    public ResponseEntity<Response> getDocRoute(@RequestBody(required = true) Request req){
+    @Operation(summary = "Retrieve Route Document given Ruta fols")
+    @GetMapping(path = "/ruta/documento", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Response> getDocRoute(@Valid @RequestBody(required = true) Request req){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
         ResponseRuta ruta= new ResponseRuta();
@@ -125,8 +143,9 @@ public class RestControllerRoute {
         return re;
     }
     
-    @PostMapping("/ruta/cancelar")
-    public ResponseEntity<Response> cancelRoute(@RequestBody(required = true) Request req ){
+    @Operation(summary = "Cancel Route given Ruta fols")
+    @PostMapping(path = "/ruta/cancelar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Response> cancelRoute(@Valid @RequestBody(required = true) Request req ){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
         ResponseRuta ruta= new ResponseRuta();
@@ -150,8 +169,9 @@ public class RestControllerRoute {
         return re;
     }
     
-    @PutMapping("/ruta/estatus")
-    public ResponseEntity<Response> statusRoute(@RequestBody(required = true) Request req ){
+    @Operation(summary = "Modify Route given Ruta fols")
+    @PutMapping(path = "/ruta/estatus", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Response> statusRoute(@Valid @RequestBody(required = true) Request req ){
         Response resp = new Response();
         req.setIdPeticion(idRequest.getAndIncrement());
         ResponseRuta ruta= new ResponseRuta();

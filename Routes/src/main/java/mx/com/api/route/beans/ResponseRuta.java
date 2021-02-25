@@ -5,6 +5,8 @@
  */
 package mx.com.api.route.beans;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import lombok.Data;
 
@@ -13,17 +15,26 @@ import lombok.Data;
  * @author darkn
  */
 @Data
+@Schema(name = "RespuestaRuta")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseRuta {
-   private Long idPeticion;
+    @Schema(hidden = true)
+    private Long idPeticion;
+    @Schema(hidden = true)
     private Integer estatus;
+    @Schema(hidden = true)
     private String mensaje;
+    @Schema(description = "Folio de Ruta (Creacion)")
     private List<String> ruta;
-    private String numGuia;
+    @Schema(description = "Cadena de documento", format = "base64")
     private String documento;
-    private String carrier;
+    @Schema(description = "Folios enviados para procesamiento")
     private FoliosResponse folios;
+    @Schema(hidden = true)
     private Boolean error;
+    @Schema(hidden = true)
     private String code;
+    @Schema(description = "Folio de envio (EKT only)")
     private Integer folEnvio;
      
 }

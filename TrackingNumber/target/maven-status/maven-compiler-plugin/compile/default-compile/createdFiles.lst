@@ -1,0 +1,9 @@
+mx\com\api\trknbr\beans\Request.class
+mx\com\api\trknbr\beans\FolioResponse.class
+mx\com\api\trknbr\resources\RestControllerTrkNbr.class
+mx\com\api\trknbr\beans\ConfigBean.class
+mx\com\api\trknbr\beans\Response.class
+mx\com\api\trknbr\feign\RouteFeign.class
+mx\com\api\trknbr\beans\FoliosResponse.class
+mx\com\api\trknbr\AppConf.class
+mx\com\api\trknbr\runner.class

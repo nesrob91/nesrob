@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import mx.com.api.route.beans.ConfigBean;
+import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.DetalleRem;
 import mx.com.api.route.beans.Remision;
 import org.springframework.beans.factory.annotation.Autowired;
