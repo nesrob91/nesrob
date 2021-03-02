@@ -38,8 +38,8 @@ import org.springframework.stereotype.Repository;
  *
  * @author nroblerol
  */
-@Repository("rutasDao")
-public class RutaDaoImpl implements RutaDao{
+@Repository("rutasDaoLyde")
+public class RutaDaoLydeImpl implements RutaDao{
     @Autowired
     NamedParameterJdbcTemplate sccpConnection ;
     @Autowired
@@ -50,6 +50,8 @@ public class RutaDaoImpl implements RutaDao{
     @Override
     public Integer getFolRut(int tipo, int almacen) {
         Integer folio;
+        String sqlRuta = "select info_cd.seq_fruta_".concat(almacen+". nextval from dual");
+        String sqlEnvio="select info_cd.seq_fenvio_".concat(almacen+". nextval from dual");
         String sql = "select folnum \n" +
             "from info_cd.rplfol \n" +
             "where foltip = :tiporem \n" +
@@ -58,7 +60,16 @@ public class RutaDaoImpl implements RutaDao{
         try{
             paramMap.put("tiporem",tipo);
             paramMap.put("emisor",almacen);
-            folio=sccpConnection.queryForObject(sql, paramMap, Integer.class);
+            switch(tipo){
+                case 5:
+                    folio=sccpConnection.queryForObject(sqlRuta, paramMap, Integer.class);
+                    break;
+                case 6:
+                    folio=sccpConnection.queryForObject(sqlEnvio, paramMap, Integer.class);
+                    break;
+                default :
+                    folio=sccpConnection.queryForObject(sql, paramMap, Integer.class);
+            }
         }catch(Exception e){
             folio = null;
             if(configuration.isWriteActions())
@@ -156,7 +167,7 @@ public class RutaDaoImpl implements RutaDao{
                 "  left join info_cd.ce_control_guias cg on pkidcajahdr=cg.ref_field_2 and id_estatus_guia = 10\n" +
                 "  where ch.id_manh = 324\n" +
                 ") g on g.olpn=to_char(foldoc)\n" +
-            "where (origen,destino,foldoc ) in ( :v_emi_rec_fol) \n" +
+            "where (origen,destino,foldoc ) in ( :v_emi_rec_fol ) \n" +
             "--and destino = tabla_datos(v_concat).receptor\n" +
             "--and foldoc = tabla_datos(v_concat).folrem\n" +
             "and (status <> 'C' and status <> 'T')\n" +
@@ -243,277 +254,32 @@ public class RutaDaoImpl implements RutaDao{
 
     @Override
     public Map<String,Double> getMtsPago_Imp(Integer emisor, Integer destino, double mtsPagar) {
-        String sql = "select  flemts, fleimp\n" +
-            "from info_cd.fle150f \n" +
-            "where flecdm = :v_emi\n" +
-            "--and flemts = info_cd.pkg_catalogos_transp.obten_mts_pagar(v_emi, v_tda,vi_mts * 1.7 )\n" +
-            "and flemts = :mtsPagar\n" +
-            "and fletda = :v_tda\n" +
-            "and flepro is null\n" +
-            "and rownum = 1    ";
-        Map<String,Double> result = new HashMap<>();
-        Map<String,Object> param = new HashMap<>();
-        try{
-            param.put("v_emi",emisor);
-            param.put("v_tda",destino);
-            param.put("mtsPagar",mtsPagar);
-            result=sccpConnection.queryForObject(sql, param, new RowMapper<Map<String,Double>>() {
-                @Override
-                public Map<String, Double> mapRow(ResultSet rs, int rowNum) throws SQLException {
-                    Map<String, Double> r=new HashMap<>();
-                    r.put("mtsPago",rs.getDouble("flemts"));
-                    r.put("impPago",rs.getDouble("fleimp"));
-                    return r;
-                }
-            });
-        }catch(EmptyResultDataAccessException e){
-            result.put("empty",0.0);
-        }catch(Exception e){
-            result.put("error",0.0);
-        }
-        return result;
+        
+        return null;
     }
 
     @Override
     public Map<String, Double> getVolumenTarifa(Integer ori, String folrems) {
-        Map<String,Object> result;
-        Map<String,Double> fixed;
-        Map<String,Object> param = new HashMap<>();
-        try{
-            SimpleJdbcCall call = new SimpleJdbcCall(sccpConnection.getJdbcTemplate());
-            call.withSchemaName("INFO_CD");
-            call.withCatalogName("EKT_GEN_RUTAS_PKG");
-            call.withProcedureName("PR_VALIDA_VOLUMEN_TARIFAS");
-            param.put("v_origen",ori);
-            param.put("folios_rem",folrems);
-            result = call.execute(param);
-            fixed = new HashMap<>();
-            if(result.isEmpty()){
-                fixed.put("empty",0.0);
-            }else{
-                if(result.containsKey("VOLUMEN_TOT") && result.get("VOLUMEN_TOT")!=null)
-                    fixed.put("volTot", Double.parseDouble(result.get("VOLUMEN_TOT").toString()));
-                if(result.containsKey("KMSTOT") && result.get("KMSTOT")!=null)
-                    fixed.put("kms", Double.parseDouble(result.get("KMSTOT").toString()));
-                if(result.containsKey("IMPORTEMAX") && result.get("IMPORTEMAX")!=null)
-                    fixed.put("impPago", Double.parseDouble(result.get("IMPORTEMAX").toString()));
-                if(fixed.isEmpty())
-                    fixed.put("empty", 0.0);
-            }
-        }catch(Exception e){
-            if(configuration.isWriteActions())
-                System.out.println("ERROR : "+e.getMessage());
-            try{
-                logger.insertaError(1190001, 11, ori, 0, 
-                    folrems.substring(0, 75), 0, 0, 
-                    "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
-            }catch(Exception ex){
-            }
-            fixed = null;
-        }
-        return fixed;
+        
+        return null;
     }
 
     @Override
     public Map<String, Double> getVolumen_Precio(Integer ori, Integer des, double mts, String folrems, double kms, double impMax) {
-         Map<String,Object> result;
-        Map<String,Double> fixed;
-        Map<String,Object> param = new HashMap<>();
-        try{
-            /*SimpleJdbcCall call = new SimpleJdbcCall(sccpConnection.getJdbcTemplate());
-            call.withSchemaName("INFO_CD");
-            call.withCatalogName("EKT_GEN_RUTAS_PKG");
-            call.withProcedureName("pr_calculaFormula");
-            param.put("origen",ori);
-            param.put("tienda",des);
-            param.put("metrosTotal",mts);
-            param.put("folios_par",folrems);
-            param.put("v_kms",kms);
-            param.put("v_importeMAX",impMax);
-            result = call.execute(param);*/
-            List<SqlParameter> params = Arrays.asList(
-                    new SqlParameter("origen", Types.BIGINT),
-                    new SqlParameter("tienda", Types.BIGINT),
-                    new SqlParameter("metrosTotal", Types.BIGINT),
-                    new SqlParameter("folios_par", Types.VARCHAR),
-                    new SqlParameter("v_kms", Types.BIGINT),
-                    new SqlParameter("v_importeMAX", Types.BIGINT),
-                    new SqlOutParameter("volumenParcial", Types.BIGINT),
-                    new SqlOutParameter("precioCalculado", Types.BIGINT)
-            );
-            result = sccpConnection.getJdbcTemplate().call(new CallableStatementCreator() {
-                @Override
-                public CallableStatement createCallableStatement(Connection con) throws SQLException {
-                    CallableStatement call = con.prepareCall("{call info_cd.EKT_GEN_RUTAS_PKG.pr_calculaFormula(?,?,?,?,?,?,?,?)}");
-                    call.setInt(1, ori);
-                    call.setInt(2, des);
-                    call.setDouble(3, mts);
-                    call.setString(4, folrems);
-                    call.setDouble(5, kms);
-                    call.setDouble(6, impMax);
-                    call.registerOutParameter(7, Types.BIGINT);
-                    call.registerOutParameter(8, Types.BIGINT);
-                    return call;
-                }
-            }, params);
-            fixed = new HashMap<>();
-            if(result.isEmpty()){
-                fixed.put("empty",0.0);
-            }else{
-                if(result.containsKey("VOLUMENPARCIAL") && result.get("VOLUMENPARCIAL")!=null)
-                    fixed.put("volPar", Double.parseDouble(result.get("VOLUMENPARCIAL").toString()));
-                if(result.containsKey("volumenParcial") && result.get("volumenParcial")!=null)
-                    fixed.put("volPar", Double.parseDouble(result.get("volumenParcial").toString()));
-                if(result.containsKey("PRECIOCALCULADO") && result.get("PRECIOCALCULADO")!=null)
-                    fixed.put("impPagar", Double.parseDouble(result.get("PRECIOCALCULADO").toString()));
-                if(result.containsKey("precioCalculado") && result.get("precioCalculado")!=null)
-                    fixed.put("impPagar", Double.parseDouble(result.get("precioCalculado").toString()));
-                if(fixed.isEmpty())
-                    fixed.put("empty", 0.0);
-            }
-        }catch(Exception e){
-            if(configuration.isWriteActions())
-                System.out.println("ERROR : "+e.getMessage());
-            try{
-                logger.insertaError(1190001, 11, ori, 0, 
-                    folrems.substring(0, 75), 0, 0, 
-                    "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
-            }catch(Exception ex){
-            }
-            fixed = null;
-        }
-        return fixed;
+        
+        return null;
     }
 
     @Override
     public Map<String, Double> getVolumen_Precio_Lyde(Integer ori, Integer des, double mts, String folrems, double kms, double impMax) {
-        Map<String,Object> result;
-        Map<String,Double> fixed;
-        Map<String,Object> param = new HashMap<>();
-        try{
-            List<SqlParameter> params = Arrays.asList(
-                    new SqlParameter("origen_", Types.BIGINT),
-                    new SqlParameter("folios_rem", Types.VARCHAR),
-                    new SqlOutParameter("error_", Types.BIGINT),
-                    new SqlOutParameter("MSG", Types.VARCHAR),
-                    new SqlOutParameter("volumen", Types.DOUBLE),
-                    new SqlOutParameter("precioEquipos", Types.DOUBLE)
-            );
-            result = sccpConnection.getJdbcTemplate().call(new CallableStatementCreator() {
-                @Override
-                public CallableStatement createCallableStatement(Connection con) throws SQLException {
-                    CallableStatement call = con.prepareCall("{call info_cd.EKT_GEN_RUTAS_PKG.pr_calculaFormulaLYDE(?,?,?,?,?,?)}");
-                    call.setInt(1, ori);
-                    call.setString(2, folrems);
-                    call.registerOutParameter(3, Types.BIGINT);
-                    call.registerOutParameter(4, Types.VARCHAR);
-                    call.registerOutParameter(5, Types.DOUBLE);
-                    call.registerOutParameter(6, Types.DOUBLE);
-                    return call;
-                }
-            }, params);
-            fixed=new HashMap<>();
-            if(result.isEmpty()){
-                fixed.put("empty",0.0);
-                try{
-                    logger.insertaError(1190001, 11, ori, 0, 
-                        folrems.substring(0, 75), 0, 0, 
-                        "", 0, 0, 
-                        "info_cd.EKT_GEN_RUTAS_PKG.pr_calculaFormulaLYDE returned no values", 
-                        getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
-                }catch(Exception ex){
-                }
-            }else{
-                if(result.containsKey("MSG") && result.get("MSG")!=null){
-                    try{
-                        logger.insertaError(1190001, 11, ori, 0, 
-                            (folrems.length()>75?folrems.substring(0, 75):folrems), 0, 0, 
-                            "", 0, 0, 
-                            result.get("MSG").toString(), 
-                            getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
-                    }catch(Exception ex){
-                        System.out.println("Error : " + result.get("MSG"));
-                    }
-                }else{
-                    if(result.containsKey("volumen") && result.get("volumen")!=null)
-                        fixed.put("volumen", Double.parseDouble(result.get("volumen").toString()));
-                    if(result.containsKey("precioEquipos") && result.get("precioEquipos")!=null)
-                        fixed.put("precioEquipos", Double.parseDouble(result.get("precioEquipos").toString()));
-                }
-                if(fixed.isEmpty())
-                    fixed.put("empty", 0.0);
-            }
-        }catch(Exception e){
-            if(configuration.isWriteActions())
-                System.out.println("ERROR : "+e.getMessage());
-            try{
-                logger.insertaError(1190001, 11, ori, 0, 
-                    folrems.substring(0, 75), 0, 0, 
-                    "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
-            }catch(Exception ex){
-            }
-            fixed = null;
-        }
-        return fixed;
+        
+        return null;
     }
 
     @Override
     public double getMtsPagar(Integer emisor, Integer destino, double mtsEst, boolean min) {
-        double mtsPagar=0;
-        String sqlMin="select flemts\n" +
-            "    from info_cd.fle150f\n" +
-            "    where flecdm = :vi_origen\n" +
-            "    and fletda = :vi_destino\n" +
-            "    and (flemts - :vi_mts_sys) = (select max(flemts - :vi_mts_sys)\n" +
-            "  from info_cd.fle150f\n" +
-            "  where flecdm = :vi_origen\n" +
-            "  and fletda = :vi_destino\n" +
-            "  and flemts < :vi_mts_sys \n" +
-            " )    \n" +
-            "    and rownum = 1";
-        String sqlMax="select flemts\n" +
-            "    from info_cd.fle150f\n" +
-            "    where flecdm = :vi_origen\n" +
-            "    and fletda = :vi_destino\n" +
-            "    and (flemts - :vi_mts_sys) = (select min(flemts - :vi_mts_sys)\n" +
-            "            from info_cd.fle150f\n" +
-            "            where flecdm = :vi_origen\n" +
-            "            and flemts >= :vi_mts_sys  \n" +
-            "          )\n" +
-            "    and fletda = vi_destino\n" +
-            "    and rownum = 1    ";
-        Map<String,Object> param=new HashMap<>();
-        try{
-            param.put("vi_origen",emisor);
-            param.put("vi_destino",destino);
-            param.put("vi_mts_sys",mtsEst);
-            if(min)
-                mtsPagar=sccpConnection.queryForObject(sqlMin, param, Double.class);
-            else
-                mtsPagar=sccpConnection.queryForObject(sqlMax, param, Double.class);
-        }catch(EmptyResultDataAccessException e){
-            sqlMin="select min(flemts)\n" +
-            "        from info_cd.fle150f\n" +
-            "        where flecdm = :vi_origen\n" +
-            "        and fletda = :vi_destino";
-            sqlMax="select max(flemts)\n" +
-            "        from info_cd.fle150f\n" +
-            "        where flecdm = :vi_origen\n" +
-            "        and fletda = :vi_destino";
-            if(min){
-                mtsPagar=sccpConnection.queryForObject(sqlMin, param, Double.class);
-                mtsPagar=(mtsPagar*-1);
-            }else{
-                mtsPagar=sccpConnection.queryForObject(sqlMax, param, Double.class);
-                mtsPagar=(mtsPagar*-1);
-            }
-        }catch(Exception e){
-            
-        }
-        return mtsPagar;
+        
+        return 0.0;
     }
 
     @Override
@@ -819,11 +585,78 @@ public class RutaDaoImpl implements RutaDao{
         param.put("foldoc",rutas);
         return sccpConnection.update(sql, param)>0;
     }
-
+    
     @Override
-    public List<EsquemaPago> getConceptosPago(Integer origen, Integer destino, Integer proveedor) {
-        return null;
+    public List<EsquemaPago> getConceptosPago(Integer origen, Integer destino, Integer proveedor){
+        List<EsquemaPago> conceptos=new ArrayList<>();
+        String sql = "select \n" +
+            "--info guia base\n" +
+            "cpd.origen,cpd.tienda destino,cpd.importe importe_guia_gase,proveedor,unidad_afecta,tipo_flete,moneda      \n" +
+            "--info proveedor\n" +
+            ",t.TRAPRO, t.TRARZO, t.TRACD\n" +
+            "--info tipo contenido \n" +
+            ",cpt.id_tipo tipo_guia,cpt.origen origen_tipo_guia,cpt.descripcion\n" +
+            "--info clasificacion por tipo\n" +
+            ",cpc.id_tipo tipo_clasf,cpc.origen origen_clasf,nvl(cpc.clasificacion,'-') clasificacion,cpc.nivel_clasificacion \n" +
+            "--info nivel clasificacion\n" +
+            ",cpnt.id_nivel,cpnt.descripcion desc_nivel_clasificacion \n" +
+            "--info importe clasificacion x tipo_sku\n" +
+            ",cps.id_tipo tipo_guia_sku,cps.origen origen_tipo_guia_sku,cps.destino destino_tipo_guia_sku,nvl(cps.IMPORTE,0) importe_sku,cps.ID_ACC flg_volumen\n" +
+            "--info importe volumen (sim) (by origen- as of feb,2021)\n" +
+            ",cpa.ID_TIPO_ACC,cpa.ORIGEN origen_tipo_accesorio,cpa.destino destino_tipo_accesorio,cpa.DESCRIPCION desc_accesorio,nvl(cpa.IMPORTE,0) importe_accesorio,cpa.VOLUMEN_MIN,cpa.VOLUMEN_MAX \n" +
+            "--info importe zona extendida\n" +
+            ",cpz.ORIGEN origen_ze,cpz.destino destino_ze,nvl(cpz.importe,0) importe_ze \n" +
+            "--info importe sin cobertura\n" +
+            ",cpn.ORIGEN origen_sc,cpn.destino destino_sc,cpn.VOL_BASE,nvl(cpn.importe_base,0) importe_sc, nvl(cpn.importe_extra,0) importe_sc_ex  \n" +
+            "from info_cd.conceptos_pago_dtl cpd\n" +
+            "left join info_cd.conceptos_pago_tipo cpt on cpd.UNIDAD_AFECTA=cpt.ID_TIPO and cpd.ORIGEN=cpt.ORIGEN and cpt.FLG_ACTIVE = 1\n" +
+            "left join info_cd.conceptos_pago_clasf cpc on cpd.unidad_afecta=cpc.id_tipo and cpd.origen=cpc.origen and cpc.FLG_ACTIVE = 1\n" +
+            "left join info_cd.conceptos_pago_nvl_tipo cpnt on cpc.NIVEL_CLASIFICACION = cpnt.ID_NIVEL and cpnt.FLG_ACTIVE = 1\n" +
+            "left join info_cd.conceptos_pago_sku cps on to_char(cps.ID_TIPO) = cpd.UNIDAD_AFECTA and cpd.ORIGEN=cps.ORIGEN and cps.DESTINO = cpd.TIENDA and cps.FLG_ACTIVE = 1\n" +
+            "left join info_cd.conceptos_pago_acc_tipo cpa on cpa.ID_TIPO_ACC = cps.ID_ACC and cpa.ORIGEN=cps.ORIGEN and cpa.destino=cps.destino and cpa.FLG_ACTIVE = 1\n" +
+            "left join info_Cd.conceptos_pago_ze cpz on cpd.ORIGEN=cpz.ORIGEN and cpz.DESTINO = cpd.tienda and cpz.FLG_ACTIVE=1\n" +
+            "left join info_Cd.conceptos_pago_sc cpn on cpd.ORIGEN=cpn.ORIGEN and cpn.DESTINO = cpd.tienda and cpn.FLG_ACTIVE = 1\n" +
+            "left join info_cd.tra150f t on cpd.PROVEEDOR=t.TRAPRO\n" +
+            "where 1=1\n" +
+            "and cpd.status = 1\n" +
+            "and cpd.ORIGEN = :origen and tienda = :destino--2185--9757--1135--100\n" +
+            "--and cpd.proveedor = :proveedor";
+        Map<String,Object> param=new HashMap<>();
+        try{
+            param.put("origen",origen);
+            param.put("destino",destino);
+            param.put("proveedor",proveedor);
+            conceptos = sccpConnection.query(sql, param, new RowMapper() {
+                @Override
+                public EsquemaPago mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    EsquemaPago ep=new EsquemaPago();
+                    ep.setAccesorioTipo(rs.getInt("FLG_VOLUMEN"));
+                    ep.setClasificacion(rs.getString("CLASIFICACION"));
+                    ep.setDescAccesorioTipo(rs.getString("DESC_ACCESORIO"));
+                    ep.setDescTipoPago(rs.getString("DESCRIPCION"));
+                    ep.setDescNivelClasf(rs.getString("DESC_NIVEL_CLASIFICACION"));
+                    ep.setDescProveedor(rs.getString("TRARZO"));
+                    ep.setDestino(rs.getInt("DESTINO"));
+                    ep.setImporte(rs.getDouble("IMPORTE_GUIA_BASE"));
+                    ep.setImporteAcc(rs.getDouble("IMPORTE_ACCESORIO"));
+                    ep.setImporteSCBase(rs.getDouble("IMPORTE_SC"));
+                    ep.setImporteClasf(rs.getDouble("IMPORTE_SKU"));
+                    ep.setImporteSCExtra(rs.getDouble("IMPORTE_SC_EX"));
+                    ep.setImporteZE(rs.getDouble("IMPORTE_ZE"));
+                    ep.setMoneda(rs.getString("MONEDA"));
+                    ep.setNivelClasificacion(rs.getInt("NIVEL_CLASIFICACION"));
+                    ep.setOrigen(rs.getInt("ORIGEN"));
+                    ep.setProveedor(rs.getString("IMPORTE_ACCESORIO"));
+                    ep.setTipoPago(rs.getInt("TIPO_GUIA"));
+                    ep.setVolumenSCBase(rs.getInt("VOL_BASE"));
+                    ep.setVolumenMin(rs.getInt("VOLUMEN_MIN"));
+                    ep.setVolumenMax(rs.getInt("VOLUMEN_MAX"));
+                    return ep;
+                }
+            });
+        }catch(Exception e){
+            conceptos = null;
+        }
+        return conceptos;
     }
-    
-    
 }

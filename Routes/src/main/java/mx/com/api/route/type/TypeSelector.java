@@ -87,17 +87,28 @@ public class TypeSelector {
             try{
                 if(request.getIdCentro() == 9971 || request.getIdCentro() == 324){
                     resp=lyde.generateFolRut(cd,0,rems,request.getIdTransporte(),request.getIdUnidad(), 0, 0, 0,"","","",false);
+                    if(resp.getError()){
+                        resp.setDocumento("EX");
+                    }else{
+                        resp.setDocumento(lyde.getDocument(cd, resp.getRuta().size()>1?resp.getFolEnvio():0, resp.getRuta().size()>1?0:Integer.parseInt(resp.getRuta().get(0))));
+                    }
+                    resp.setError(null);
+                    resp.setCode(null);
                 }else{
                     resp=elektra.generateFolRut(cd,0,rems,request.getIdTransporte(),request.getIdUnidad(), request.getTipoRuta(), request.getMotivo(), request.getSecuencia(), "","","",false);
+                    if(resp.getError()){
+                        resp.setDocumento("EX");
+                    }else{
+                        resp.setDocumento(elektra.getDocument(cd, resp.getRuta().size()>1?resp.getFolEnvio():0, resp.getRuta().size()>1?0:Integer.parseInt(resp.getRuta().get(0))));
+                    }
                 }
-                resp.setError(null);
             }catch(Exception e){
-                resp.setEstatus(-1);
+                resp.setEstatus(-2);
                 resp.setCode("GRT0001");
                 resp.setMensaje("Error al crear Ruta");
             }
         }catch(Exception e){
-            resp.setEstatus(-1);
+            resp.setEstatus(-2);
             resp.setMensaje("Error al procesar Peticion");
         }
         return resp;

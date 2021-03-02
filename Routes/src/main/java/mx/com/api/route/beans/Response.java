@@ -26,7 +26,7 @@ public class Response {
     private String mensaje;
     @Schema(description = "Folio de peticion")
     private String folio;
-    @Schema(description = "Resultado de Operacion")
+    @Schema(description = "Resultado de Procesamiento")
     private ResponseRuta resultado;
     
     public Response() {

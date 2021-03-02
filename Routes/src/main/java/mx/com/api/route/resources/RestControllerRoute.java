@@ -6,12 +6,8 @@
 package mx.com.api.route.resources;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -96,24 +92,31 @@ public class RestControllerRoute {
         req.setIdPeticion(idRequest.getAndIncrement());
         ResponseRuta ruta= new ResponseRuta();
         if(rutaSelect.validateRequest(req, 1)){
-            //ruta=rutaSelect.generateRoute(req);
-            ruta.setMensaje("Dummy");
-            ruta.setEstatus(0);
+            ruta=rutaSelect.generateRoute(req);
+            resp.setMensaje("Procesado");
+            resp.setCodigo("0");
         }else{
-            ruta.setMensaje("Verifique peticion");
+            resp.setMensaje("Verifique peticion");
+            resp.setCodigo("1");
             ruta.setEstatus(-1);
+            ruta.setMensaje("Peticion invalida");
         }
         ResponseEntity re = null;
-        if(ruta.getEstatus()==1)
-            re = new ResponseEntity(resp, HttpStatus.MULTI_STATUS);
-        if(ruta.getEstatus()==0)
-            re = new ResponseEntity(resp, HttpStatus.OK);
-        if(ruta.getEstatus()==-2){
-            re = new ResponseEntity(resp, HttpStatus.INTERNAL_SERVER_ERROR);
-            resp.setCodigo("-1");
+        resp.setResultado(ruta);
+        if(ruta.getEstatus()==1){
+            re = new ResponseEntity(resp, HttpStatus.ACCEPTED);
         }
-        if(ruta.getEstatus()==-1)
+        if(ruta.getEstatus()==0){
+            re = new ResponseEntity(resp, HttpStatus.OK);
+        }
+        if(ruta.getEstatus()==-2){
+            resp.setCodigo("1");
+            resp.setMensaje(ruta.getMensaje());
+            re = new ResponseEntity(resp, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        if(ruta.getEstatus()==-1){
             re = new ResponseEntity(resp, HttpStatus.BAD_REQUEST);
+        }
         return re;
     }
     

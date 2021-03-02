@@ -17,7 +17,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -42,7 +45,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     protected ResponseEntity<Object> handleBindException(BindException ex, HttpServletRequest request) {
         String error = "Binding exception " + ex.getMessage() + ". " + ex.getNestedPath();
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -54,7 +57,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpServletRequest request) {
         String error = "No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL();
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
@@ -65,7 +68,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         String error = ex.getMessage();
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }*/
@@ -77,7 +80,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     protected ResponseEntity<Object> handleServletRequestBindingException(ServletRequestBindingException ex, HttpServletRequest request) {
         String error="Binding not found. "+ex.getMessage()+". "+request.getContextPath();
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -87,9 +90,9 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ApiResponses(value = {@ApiResponse(responseCode = "400", description = "Missing Body", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Response.class)))})
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpServletRequest request) {
-        String error="Request Body not found. ";
+        String error="Unreadable Body. ";
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
@@ -102,7 +105,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
         String error="Method not supported. "+ex.getMethod()+". "+request.getRequestURI();
         //error+=" "+ex.getMessage()+" "+request.getDescription(true);
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
     }
@@ -114,7 +117,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpServletRequest request) {
         String error = "Missing parameter... "+ex.getParameterName()+". ";
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST); 
     }
@@ -126,7 +129,7 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     protected ResponseEntity<Object> handleMissingPathVariable(MissingPathVariableException ex, HttpServletRequest request) {
         String error = "Missing variable... "+ex.getVariableName()+". ";
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST); 
     }
@@ -134,11 +137,37 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ExceptionHandler(MissingServletRequestPartException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    @ApiResponses(value = {@ApiResponse(responseCode = "500", description = "Missing request part", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Response.class)))})
+    @ApiResponses(value = {@ApiResponse(responseCode = "400", description = "Missing request part", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Response.class)))})
     protected ResponseEntity<Object> handleMissingServletRequestPart(MissingServletRequestPartException ex, HttpServletRequest request) {
         String error = "Missing part... "+ex.getRequestPartName()+". ";
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
+        apiError.setMensaje(error);
+        return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST); 
+    }
+    
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    @ResponseBody
+    @ResponseStatus(value = HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+    @ApiResponses(value = {@ApiResponse(responseCode = "415", description = "Missing request part", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Response.class)))})
+    protected ResponseEntity<Object> handleMediaTypeException(HttpMediaTypeNotSupportedException ex, HttpServletRequest request) {
+        String error = "Inalid MediaType... "+ex.getContentType()+". ";
+        Response apiError = new Response();
+        apiError.setCodigo("1");
+        apiError.setMensaje(error);
+        return new ResponseEntity<>(apiError, HttpStatus.UNSUPPORTED_MEDIA_TYPE); 
+    }
+    
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseBody
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ApiResponses(value = {@ApiResponse(responseCode = "400", description = "Missing request part", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Response.class)))})
+    protected ResponseEntity<Object> handle(MethodArgumentNotValidException ex, HttpServletRequest request) {
+        String fields ="";
+        fields = ex.getBindingResult().getFieldErrors().stream().map((fe) -> ("|").concat(fe.getField()).concat("|")).reduce(fields, String::concat);
+        String error = "Validate Fields... "+fields+". ";
+        Response apiError = new Response();
+        apiError.setCodigo("1");
         apiError.setMensaje(error);
         return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST); 
     }
@@ -148,12 +177,8 @@ public class ErrorController /*extends ResponseEntityExceptionHandler*/ {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     @ApiResponses(value = {@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Response.class)))})
     public Response handleException(Exception ex, HttpServletRequest request) {
-        System.out.println("Trying to print error");
-        try{
-            System.out.println("Error : "+ex.getMessage());
-        }catch(Exception e){}
         Response apiError = new Response();
-        apiError.setCodigo("-1");
+        apiError.setCodigo("1");
         apiError.setMensaje(ex.getMessage());
         return apiError;
     }

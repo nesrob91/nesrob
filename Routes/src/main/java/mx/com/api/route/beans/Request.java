@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -26,9 +27,11 @@ public class Request {
     private Long idPeticion;
     @JsonProperty(required = true)
     @Schema(description = "Centro de distibucion (3-digits)", required = true)
+    @NotNull
     private Integer idCentro;
     @JsonProperty(required = true)
     @Schema(description = "Folio de Remision(Creacion)/Ruta(Cancelar,Estatus)", required = true)
+    @NotNull
     private List<String> folios;
     @Schema(description = "Id de transporte")
     private Integer idTransporte;

@@ -6,6 +6,8 @@
 package mx.com.api.route.service;
 
 import com.elektra.cadsumutils.logs.error.LogsPaqueterias;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +21,7 @@ import mx.com.api.route.dao.RutaDao;
 import mx.com.api.route.dao.TiendaDao;
 import mx.com.api.route.dao.TransporteDao;
 import mx.com.api.route.beans.DetalleRem;
+import mx.com.api.route.beans.EsquemaPago;
 import mx.com.api.route.beans.Remision;
 import mx.com.api.route.beans.SKU;
 import mx.com.api.route.beans.Transporte;
@@ -35,7 +38,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class RutaServiceLydeImpl implements RutaService {
 
     @Autowired
-    private RutaDao rutasDao;
+    private RutaDao rutasDaoLyde;
     @Autowired
     private GeneralDao generalDao;
     @Autowired
@@ -47,7 +50,7 @@ public class RutaServiceLydeImpl implements RutaService {
 
     @Override
     public Integer getFolRut(int tipo, int almacen) {
-        return rutasDao.getFolRut(tipo, almacen);
+        return rutasDaoLyde.getFolRut(tipo, almacen);
     }
 
     @Override
@@ -67,11 +70,7 @@ public class RutaServiceLydeImpl implements RutaService {
             }
         } else {
             try {
-                if (folEnv == null || folEnv == 0) {
-                    getFolioEnv = rutasDao.getFolRut(6, origen);
-                } else {
-                    getFolioEnv = folEnv;
-                }
+                getFolioEnv = rutasDaoLyde.getFolRut(6, origen);
             } catch (Exception e) {
                 getFolioEnv = null;
             }
@@ -91,18 +90,18 @@ public class RutaServiceLydeImpl implements RutaService {
 
     @Override
     public boolean updateFolRut(int tipo, int almacen, int folio) {
-        return rutasDao.updateFolRut(tipo, almacen, folio);
+        return rutasDaoLyde.updateFolRut(tipo, almacen, folio);
     }
 
     @Override
     public Integer getDiasTol(Integer origen) {
-        return rutasDao.getDiasTol(origen);
+        return rutasDaoLyde.getDiasTol(origen);
     }
 
     @Override
     public boolean existsMDN(Integer mdn, Integer almacen) {
 
-        return rutasDao.existsMDN(mdn, almacen);
+        return rutasDaoLyde.existsMDN(mdn, almacen);
     }
 
     private Map<String, SKU> getInfoSKU(List<Remision> rem) {
@@ -189,7 +188,7 @@ public class RutaServiceLydeImpl implements RutaService {
     @Override
     public Map<String, Object> validateRemisionTranrut(List<Remision> rem) {
         Map<String, Object> validate = new HashMap<>();
-        List<Map<String, Object>> remsFound = rutasDao.validateRemisionTranrut(rem);
+        List<Map<String, Object>> remsFound = rutasDaoLyde.validateRemisionTranrut(rem);
         List<String> folios;
         List<String> guias;
         if (remsFound != null) {
@@ -272,22 +271,9 @@ public class RutaServiceLydeImpl implements RutaService {
         }
         double fe = 0;
         switch (vi_frems.get(0).getEmisor()) {
-            case 3302:
-                fe = rutasDao.getFacorEstiba("RUT REM PAN");
-                break;
-            case 712:
-                fe = rutasDao.getFacorEstiba("RUT REM HON");
-                break;
-            case 9001:
-                fe = rutasDao.getFacorEstiba("RUT REM GUA");
-                break;
-            case 7469:
-            case 9105:
-                fe = rutasDao.getFacorEstiba("RUT REM PER");
-                break;
             default:
                 //if(vi_eco.getTipo().equals("D"))
-                fe = rutasDao.getFacorEstiba("RUTAS REMISIONES");
+                fe = rutasDaoLyde.getFacorEstiba("RUTAS REMISIONES");
                 //else
                 //fe=1.22;
                 break;
@@ -303,31 +289,33 @@ public class RutaServiceLydeImpl implements RutaService {
         Integer tiempoEco;
         tiempoEco = transporteDao.getTiempoEco(vi_frems.get(0).getEmisor());
         if (tiempoEco != null) {
-            mtsLibre = vi_eco.getMts();//rutasDao.getMtsLibres(vi_frems.get(0).getEmisor(), vi_prov.getIdTransporte(), vi_eco.getEco(), vi_eco.getMts(), vi_eco.getPlaca(), tiempoEco);
+            mtsLibre = vi_eco.getMts();//rutasDaoLyde.getMtsLibres(vi_frems.get(0).getEmisor(), vi_prov.getIdTransporte(), vi_eco.getEco(), vi_eco.getMts(), vi_eco.getPlaca(), tiempoEco);
         }
         String cecoOrig;
         String cecoDest;
         Integer isDist;
         Integer isCd;
-        if (vi_ccts == 0) {
-            List<Integer> tienda = new ArrayList<>();
-            tienda.add(vi_frems.get(0).getRecept());
-            isDist = tiendaDao.isDistItk(tienda);//validate if result was null ? theoretically it was validated before
-            if (isDist > 0) {
+        //if (vi_ccts == 0) {
+        //ccts is never retrieved until this method is invocated (as of feb-2021)
+            //List<Integer> tienda = new ArrayList<>();
+            //tienda.add(vi_frems.get(0).getRecept());
+            //isDist = tiendaDao.isDistItk(tienda);//validate if result was null ? theoretically it was validated before
+            //is never validated for 3PL (Lyde as of feb 2021)
+            //if (isDist > 0) {
                 //app-'ITK'
-                if (vi_frems.get(0).getEmisor() == 712) {
+                //if (vi_frems.get(0).getEmisor() == 712) {
                     //vChar-DECODE (v_tda, 1941, '7', 5420, '7', '6',9190,'8')
-                    cecoOrig = generalDao.getCeCo(true, vi_frems.get(0).getEmisor(), null, "'ITK'", "DECODE (" + vi_frems.get(0).getRecept() + ", 1941, '7', 5420, '7', '6',9190,'8')", false);
-                } else {
+                    //cecoOrig = generalDao.getCeCo(true, vi_frems.get(0).getEmisor(), null, "'ITK'", "DECODE (" + vi_frems.get(0).getRecept() + ", 1941, '7', 5420, '7', '6',9190,'8')", false);
+                //} else {
                     //vChar-'0'
-                    cecoOrig = generalDao.getCeCo(true, vi_frems.get(0).getEmisor(), null, "'ITK'", "'0'", false);
-                }
-            } else {
+                    //cecoOrig = generalDao.getCeCo(true, vi_frems.get(0).getEmisor(), null, "'ITK'", "'0'", false);
+                //}
+            //} else {
                 cecoOrig = generalDao.getCeCo(false, vi_frems.get(0).getEmisor(), null, "", "", false);
-            }
-        } else {
-            cecoOrig = vi_ccts + "";
-        }
+            //}
+        //} else {
+            //cecoOrig = vi_ccts + "";
+        //}
         if (cecoOrig == null) {
             result.put("Error", true);
             result.put("Code", "GRT0001");
@@ -341,15 +329,16 @@ public class RutaServiceLydeImpl implements RutaService {
             result.put("Message", "No se recupero informacion de tienda");
             return result;
         }
-        if (vi_ccts_tda == 0) {
+        //if (vi_ccts_tda == 0) {
+        //ccts is never retrieved until this method is invocated (as of feb-2021)
             if (isCd > 0) {
                 cecoDest = generalDao.getCeCo(false, null, vi_frems.get(0).getRecept(), "", "", false);
             } else {
                 cecoDest = generalDao.getCeCo(false, null, vi_frems.get(0).getRecept(), "", "", true);
             }
-        } else {
-            cecoDest = vi_ccts_tda + "";
-        }
+        //} else {
+            //cecoDest = vi_ccts_tda + "";
+        //}
         if (cecoDest == null) {
             result.put("Error", true);
             result.put("Code", "GRT0001");
@@ -358,48 +347,24 @@ public class RutaServiceLydeImpl implements RutaService {
         }
         double mtsPago = 0;
         double impPago = 0;
-        double mtsPagar = 0;
-        double mtsPagarMin = 0;
-        double mtsPagarMax = 0;
-        double kms = 0;
+        int kms = 0;
         double ret = 0;
         double subTot = 0;
         double iva = 0;
         boolean sinIva = false;
         double impNeto = 0;
-        Map<String, Double> getMtsPagoImpPago;
-        Map<String, Double> volTrf;
-
-        //getMtsPagoImpPago=rutasDao.getVolumen_Precio(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept(), volTrf.get("volTot"), rems, volTrf.get("kms"), volTrf.get("impPago"));
-        getMtsPagoImpPago = rutasDao.getVolumen_Precio_Lyde(vi_frems.get(0).getEmisor(), 0, 0, rems, 0, 0);
-        if (getMtsPagoImpPago != null) {
-            if (getMtsPagoImpPago.containsKey("empty")) {
-                result.put("Error", true);
-                result.put("Code", "GRTGTR0005");
-                result.put("Message", "No se pudo calcular tarifa para la tienda. T" + vi_frems.get(0).getRecept());
-                return result;
-            } else {
-                if (getMtsPagoImpPago.size() < 2) {
-                    result.put("Error", true);
-                    result.put("Code", "GRTGTR0006");
-                    result.put("Message", "No se pudo calcular tarifa para la tienda. T" + vi_frems.get(0).getRecept());
-                    return result;
-                }
-                mtsPago = getMtsPagoImpPago.get("volumen");//("volPar");
-                impPago = getMtsPagoImpPago.get("precioEquipos");//("impPagar");
-            }
-        } else {
-            result.put("Error", true);
-            result.put("Code", "GRTGTR0004");
-            result.put("Message", "No se pudo calcular tarifa para la tienda. T" + vi_frems.get(0).getRecept());
-            return result;
-        }
-
-        sinIva = rutasDao.isSinIva(vi_prov.getIdTransporte());
+        String rutaLocFor="";
+        
+        impPago=calculateImp(vi_frems, diccionarioSku, vi_prov.getIdTransporte());
+        
+        //validate mtsPago
+        //mtsPago = ?
+        
+        sinIva = rutasDaoLyde.isSinIva(vi_prov.getIdTransporte());
         if (sinIva) {
             iva = 0;
         } else {
-            iva = rutasDao.getIva(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept());
+            iva = rutasDaoLyde.getIva(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept());
         }
         if (iva == 0 && impPago == 0 && !vi_eco.getTipo().equals("D") && vi_frems.get(0).getEmisor() != 3302) {
             sinIva = true;
@@ -435,13 +400,18 @@ public class RutaServiceLydeImpl implements RutaService {
         subTot = impPago + iva;
         impNeto = subTot - ret;
         Map<String, Object> kmsTR;
-        kmsTR = rutasDao.getKmsTR(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept());
+        
+        kmsTR = rutasDaoLyde.getKmsTR(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept());
         if (kmsTR.containsKey("error")) {
             result.put("Error", true);
             result.put("Code", "GRT0001");
             result.put("Message", "No se recupero Tipo de ruta");
             return result;
+        }else{
+            kms=Integer.valueOf(kmsTR.get("kms").toString());
+            rutaLocFor=kmsTR.get("kms").toString();
         }
+        
         String ftfact = "";
         Integer ftfacd = 0;
         Integer ftfead = 0;
@@ -470,37 +440,22 @@ public class RutaServiceLydeImpl implements RutaService {
             ftcans = null;
             ftfact = null;
             if (impPago > 1000) {
-                double facDesc = rutasDao.getFactorDescuentoTransp(vi_frems.get(0).getEmisor());
+                double facDesc = rutasDaoLyde.getFactorDescuentoTransp(vi_frems.get(0).getEmisor());
                 descTransp = impPago * facDesc;
                 ftimpb = impPago - descTransp;
             } else {
                 ftimpb = impPago;
             }
         }
-        Integer folrut = (folRut == 0 ? rutasDao.getFolRut(5, vi_frems.get(0).getEmisor()) : folRut);
-        if (folrut != null) {
-            if (folrut > 0) {
-
-            } else {
-                result.put("Error", true);
-                result.put("Code", "GRTGF0003");
-                result.put("FolEnv", v_folenv);
-                result.put("Message", "No se pudo recuperar folio de ruta");
-            }
-        } else {
-            result.put("Error", true);
-            result.put("Code", "GRTGF0002");
-            result.put("FolEnv", v_folenv);
-            result.put("Message", "No se pudo recuperar folio de ruta");
-        }
+        
         Integer ola = null;
         Integer pta = null;
         try {
-            insertsRutas(vi_frems, vi_prov, vi_eco, ftimpb, folrut, descTransp, pais, ola, pta, cecoOrig, cecoDest, kmsTR.get("locFor").toString(),
-                    (Integer) kmsTR.get("kms"), mts, pzs, costo, mtsPago, iva, subTot, ret, impNeto, vi_usuario + "", ftcans, ftfact, vi_eco.getPlaca(),
+            insertsRutas(vi_frems, vi_prov, vi_eco, ftimpb, folRut, descTransp, pais, ola, pta, cecoOrig, cecoDest, rutaLocFor,
+                    kms, mts, pzs, costo, mtsPago, iva, subTot, ret, impNeto, vi_usuario + "", ftcans, ftfact, vi_eco.getPlaca(),
                     vi_obs, vi_sellos, vi_sec + "", vi_eco.getTipo(), v_folenv, vi_mtvo, vi_truta, vi_mdn, ftfacd, ftfoad, ftfead, ftfoad, ftfead, ftfoad,
                     ftfead, ftfoad, ftfead, vi_checador, vi_estibador);
-            //if(rutasDao.updateFolRut(5, vi_frems.get(0).getEmisor(), folrut)){
+            //if(rutasDaoLyde.updateFolRut(5, vi_frems.get(0).getEmisor(), folrut)){
 
             //}else{
             //  result.put("Error",true);
@@ -509,12 +464,12 @@ public class RutaServiceLydeImpl implements RutaService {
             //result.put("Message","No se pudo recuperar folio de ruta");
             //}
             result.put("Error", false);
-            result.put("Code", folrut);
+            result.put("Code", folRut);
             result.put("FolEnv", v_folenv);
             result.put("Message", "Ruta Creada");
         } catch (Exception e) {
             result.put("Error", true);
-            result.put("Code", folrut);
+            result.put("Code", folRut);
             result.put("FolEnv", v_folenv);
             try {
                 String[] s = e.getMessage().split(":");
@@ -529,6 +484,92 @@ public class RutaServiceLydeImpl implements RutaService {
         }
         return result;
     }
+    
+    private double calculateImp(List<Remision> vi_frems, Map<String,SKU> skuInfo, Integer idTransporte){
+        double imp=0.0;
+        double costoBase=0.0;
+        double costoSku=0.0;
+        double costoSkuTot=0.0;
+        double costoAccesorio=0.0;
+        double costoVolumen=0.0;
+        double costoVolumenE=0.0;
+        double costoZE=0.0;
+        Set<String> changeClass=new HashSet<>();
+        double volumen=0.0;
+        List<EsquemaPago> esquemaPago=rutasDaoLyde.getConceptosPago(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept(), idTransporte);
+        //List<EsquemaPagoAcc> esquemaPagoAcc=rutasDao.getAccesorioConceptosPago(vi_frems.get(0).getEmisor(), vi_frems.get(0).getRecept());
+        if(esquemaPago==null){
+            imp=-1;
+        }else{
+            if(esquemaPago.isEmpty()){
+                imp=0;
+            }else{
+                for(EsquemaPago esquema:esquemaPago){
+                    costoSku=esquema.getImporteClasf();
+                    costoAccesorio=esquema.getImporteAcc();
+                    costoVolumen=esquema.getImporteSCBase();
+                    costoZE=esquema.getImporteZE();
+                    int count=0;
+                    int acc=0;
+                    for(Remision r:vi_frems){
+                        for(DetalleRem dr: r.getDetalle()){
+                            if(esquema.getImporteSCBase()==0){
+                                switch(esquema.getNivelClasificacion()){
+                                    case 2:
+                                        if(skuInfo.get(dr.getSku()).getIdClase().equals(esquema.getClasificacion()))
+                                            count++;
+                                        break;
+                                    case 3:
+                                        if(skuInfo.get(dr.getSku()).getIdSubClase().equals(esquema.getClasificacion()))
+                                            count++;
+                                        break;
+                                    case 4:
+                                        if(skuInfo.get(dr.getSku()).getIdDepto().equals(esquema.getClasificacion()))
+                                            count++;
+                                        break;
+                                    case 5:
+                                        if(skuInfo.get(dr.getSku()).getIdSubDepto().equals(esquema.getClasificacion()))
+                                            count++;
+                                        break;
+                                    default :
+                                        count+=0;
+                                        break;
+                                }
+                            }else{
+                                volumen+=skuInfo.get(dr.getSku()).getPeso();
+                                count=1;
+                            }
+                        }
+                    }
+                    if(!changeClass.contains(esquema.getDescTipoPago())){
+                        changeClass.add(esquema.getDescTipoPago());
+                        if(count>0)
+                            costoBase+=esquema.getImporte();
+                    }
+                    if(esquema.getImporteSCBase()==0){
+                        if(!esquema.getAccesorioTipo().equals(1)){
+                            acc=count/esquema.getVolumenMax();
+                            float floatValue=count % esquema.getVolumenMax() ;
+                            acc=acc+(floatValue == 0 ? 0:1);
+
+                            costoSkuTot+=costoAccesorio*acc;//
+                        }else{
+                            costoSkuTot+=costoSku*count;
+                        }
+                    }else{
+                        int base = esquema.getVolumenSCBase();
+                        Double div = volumen/base;
+                        BigDecimal db = new BigDecimal(div.toString());
+                        BigDecimal round = db.setScale(0, RoundingMode.UP);
+                        Integer roundI = round.intValue();
+                        costoVolumenE=esquema.getImporteSCExtra()*(roundI-1);
+                    }
+                }
+            }
+            imp=costoBase+costoSkuTot+costoZE+costoVolumen+costoVolumenE;
+        }
+        return imp;
+    }
 
     //@Transactional(rollbackFor = Exception.class)
     @Override
@@ -541,14 +582,14 @@ public class RutaServiceLydeImpl implements RutaService {
         String msg = "";
         try {
             if (descTransp > 0) {
-                rutasDao.insertCobroTransportistas(3, rem.get(0).getEmisor(), rem.get(0).getRecept(), transp.getIdTransporte(), folrut, impBruto, descTransp);
+                rutasDaoLyde.insertCobroTransportistas(3, rem.get(0).getEmisor(), rem.get(0).getRecept(), transp.getIdTransporte(), folrut, impBruto, descTransp);
             }
             if (pais.equals("PER")) {
                 //same inserts, diferent values, not implemented yet
             } else {
-                boolean i1 = rutasDao.insertCtlimprut(rem.get(0).getEmisor(), rem.get(0).getRecept(), folrut, transp.getIdTransporte(), eco.getEco(), placa, eco.getChofer(), pta, usuario,
+                boolean i1 = rutasDaoLyde.insertCtlimprut(rem.get(0).getEmisor(), rem.get(0).getRecept(), folrut, transp.getIdTransporte(), eco.getEco(), placa, eco.getChofer(), pta, usuario,
                         mtsPago, impBruto, iva, subTot, ret, impNeto, sec);
-                boolean i2 = rutasDao.insertCtlflt(pais, ola, pta, folrut, rem.get(0).getEmisor(), rem.get(0).getRecept(), cecoO, cecoD, locFor, kms, transp.getIdTransporte(),
+                boolean i2 = rutasDaoLyde.insertCtlflt(pais, ola, pta, folrut, rem.get(0).getEmisor(), rem.get(0).getRecept(), cecoO, cecoD, locFor, kms, transp.getIdTransporte(),
                         eco.getEco(), mts, pzs, costo, mtsPago, impBruto, iva, subTot, ret, impNeto, usuario, ftcans, ftfact, placa, obs, sellos, eco.getChofer(),
                         sec, tipoEco, folenv, eco.getMts(), mtvo, tipoRuta, mdn, ftfacd, ftfoad, ftfead, ftfope, ftfepe, ftfoct, ftfect, ftfocp, ftfecp,
                         checador, estibador);
@@ -556,8 +597,8 @@ public class RutaServiceLydeImpl implements RutaService {
                 boolean i4 = false;
                 if (i2) {
                     for (Remision r : rem) {
-                        i3 = rutasDao.insertCtlfltd(r.getEmisor(), r.getRecept(), folrut, Integer.parseInt(r.getFolrem()));
-                        i4 = rutasDao.insertTranrut(r.getEmisor(), r.getRecept(), folrut, Integer.parseInt(r.getFolrem()), Integer.parseInt(r.getFecart()));
+                        i3 = rutasDaoLyde.insertCtlfltd(r.getEmisor(), r.getRecept(), folrut, Integer.parseInt(r.getFolrem()));
+                        i4 = rutasDaoLyde.insertTranrut(r.getEmisor(), r.getRecept(), folrut, Integer.parseInt(r.getFolrem()), Integer.parseInt(r.getFecart()));
                         if (!i4) {
                             msg = "GRCT2:";
                             throw new Exception(msg + "Fallo al registrar ruta por remison TRANRUT | Folio de ruta intentado " + folrut);
@@ -576,8 +617,8 @@ public class RutaServiceLydeImpl implements RutaService {
     @Override
     public boolean cancelTranrut(Integer origen, List<String> rutas) {
         try {
-            if (rutasDao.cancelTranrut(origen, rutas)) {
-                rutasDao.cancelCtlflt(origen, rutas);
+            if (rutasDaoLyde.cancelTranrut(origen, rutas)) {
+                rutasDaoLyde.cancelCtlflt(origen, rutas);
                 return true;
             } else {
                 return false;
