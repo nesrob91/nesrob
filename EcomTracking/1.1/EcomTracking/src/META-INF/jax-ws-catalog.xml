@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/E:/Users/EACEVES/ShipService_v19.wsdl" uri="wsdl/ShipService_v19.wsdl"/>
+</catalog>

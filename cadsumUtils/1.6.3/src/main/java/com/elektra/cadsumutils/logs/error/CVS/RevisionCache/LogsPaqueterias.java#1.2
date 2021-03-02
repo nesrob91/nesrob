@@ -1,0 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.elektra.cadsumutils.logs.error;
+
+import com.elektra.cadsumutils.dao.LogsService;
+import com.elektra.cadsumutils.dao.LogsServiceImpl;
+import java.io.IOException;
+
+/**
+ *
+ * @author dparra
+ */
+public class LogsPaqueterias{
+    
+    private final LogsService logsService = new LogsServiceImpl();
+    
+    public void insertaError(Integer idError, Integer idManh, Integer idEstacion, String pedido, int idCaja, Integer idCarrier, String numGuia, Integer idCanal, Integer idTipoPedido, String logs, String fuente, String usuario){
+        
+        if(!logsService.error(idError, idManh, idEstacion, pedido, idCaja, idCarrier, numGuia, idCanal, idTipoPedido, logs, fuente, usuario)){
+            System.out.println("Error al guardar log: " + idError);
+            System.out.println("Fuente: " + fuente);
+            System.out.println("Log: " + logs);
+        }
+        
+    }
+}

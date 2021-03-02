@@ -1,0 +1,12 @@
+com\elektra\cadsumutils\ws\GetNodes.class
+com\elektra\cadsumutils\ws\DHLClient.class
+com\elektra\cadsumutils\ws\UrlBeanUtil.class
+com\elektra\cadsumutils\generales\Generales.class
+com\elektra\cadsumutils\logs\error\LogsPaqueterias.class
+com\elektra\cadsumutils\dao\LogsDaoImpl.class
+com\elektra\cadsumutils\ws\RestUtil.class
+com\elektra\cadsumutils\logs\error\LogThread.class
+com\elektra\cadsumutils\dao\LogsService.class
+com\elektra\cadsumutils\dao\DataSources.class
+com\elektra\cadsumutils\dao\LogsServiceImpl.class
+com\elektra\cadsumutils\ws\XmlUtil.class

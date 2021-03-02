@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/E:/Users/dparra/Documents/Desarrollo/ECOM/FEDEX/FedExWebServiceStandardWSDL/TrackService/TrackService_v12.wsdl" uri="wsdl/TrackService_v12.wsdl"/>
+    <system systemId="file:/E:/Users/dparra/Documents/Desarrollo/ECOM/PAQUETEXPRESS/WSDL/TRACKING/consultasSOAP_editado.WSDL" uri="wsdl/consultasSOAP_editado.WSDL.wsdl"/>
+    <system systemId="file:/E:/Users/dparra/Documents/Desarrollo/ECOM/Estafeta/prod/tracking-estafeta-prod.wsdl" uri="wsdl/tracking-estafeta-prod.wsdl"/>
+</catalog>

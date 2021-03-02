@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.elektra.cadsumutils.dao;
+
+/**
+ *
+ * @author alimon
+ */
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+
+
+import java.util.logging.Level;
+
+import java.util.logging.Logger;
+
+public class Conexion {
+
+    private Connection conn = null;
+
+    boolean desarrollo = false;
+
+    public Conexion(boolean desarrollo) {
+        this.desarrollo = desarrollo;
+    }
+
+    public Connection getConexion() {
+
+        return this.conn;
+
+    }
+
+    public void startConexion() {
+
+        if (desarrollo) {
+
+            System.out.println("Comenzando conexion DAO");
+
+        }
+
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+
+            //QA
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST = (LOAD_BALANCE = off)  (FAILOVER = ON) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.82.26.56)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.82.26.57)(PORT = 1521)))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = LECTURA_SCPP)(FAILOVER_MODE =(TYPE = SELECT) (METHOD = BASIC) (BACKUP = LECTURA_SCPP) (RETRIES = 180)  (DELAY = 5))))", "INFO_CD", "info_cd_22_fhrt");
+
+            conn.setAutoCommit(false);
+
+        } catch (Exception ex) {
+
+            System.out.println("  paqueterias |startConexion | Excepcion:   " + ex.toString());
+
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }
+
+    public void endConnection() {
+
+        if (desarrollo) {
+            System.out.println("Cerrando conexion DAO");
+        }
+
+        try {
+            this.conn.close();
+
+        } catch (Exception ex) {
+
+            System.out.println("  paqueterias |endConnection | Excepcion:   " + ex.toString());
+
+        }
+
+    }
+
+}
