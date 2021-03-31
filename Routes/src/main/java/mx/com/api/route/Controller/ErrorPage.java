@@ -5,6 +5,7 @@
  */
 package mx.com.api.route.Controller;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author nroblerol
  */
 @Controller("/error")
+@Hidden
 public class ErrorPage {
 
     @GetMapping

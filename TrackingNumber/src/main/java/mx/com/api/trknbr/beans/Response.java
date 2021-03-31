@@ -7,6 +7,7 @@ package mx.com.api.trknbr.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import lombok.Data;
 
@@ -17,20 +18,26 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Schema(name = "Request", title = "Respuesta de procesamiento general")
 public class Response {
+    @Schema(hidden = true)
     private Long idPeticion;
+    @Schema(description = "Estatus de procesamiento", format = "")
     private Integer estatus;
+    @Schema(description = "Mensaje de procesamiento")
     private String mensaje;
-    private List<String> ruta;
+    @Schema(description = "Guia generada")
     private String numGuia;
+    @Schema(description = "Cadena de documento", format = "base64")
     private String documento;
+    @Schema(description = "Carrier de guia")
     private String carrier;
-    private List<FolioResponse> folios;
+    @Schema(description = "Resultado por folio enviado")
+    private FoliosResponse resultado;
+    @Schema(hidden = true)
     private Boolean error;
+    @Schema(hidden = true)
     private String code;
-    private Integer folEnvio;
     
-    public Response() {
-    }
     
 }

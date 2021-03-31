@@ -6,7 +6,9 @@
 package mx.com.api.route.service;
 
 import java.util.List;
+import mx.com.api.route.beans.Almacen;
 import mx.com.api.route.beans.SKU;
+import mx.com.api.route.beans.User;
 import mx.com.api.route.beans.Usuario;
 
 /**
@@ -19,5 +21,7 @@ public interface GeneralService {
     public Integer getIdUsuario(String usuario);
     public Usuario getInfoUsuario(Integer user);
     public String getsysdate();
-    public Integer getIdSapAlmn(Integer idManh);
+    public Almacen getInfoAlmn(Integer idAlm);
+    public User findByUsername(String user);
+    public boolean saveByUsername(User user);
 }

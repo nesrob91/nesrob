@@ -13,5 +13,5 @@ import mx.com.api.route.beans.Remision;
  * @author nroblerol
  */
 public interface RemisionService {
-    public List<Remision> getInfoRemision(Integer origen, Integer destino, List<Integer> rem);
+    public List<Remision> getInfoRemision(Integer origen, Integer destino, List<Integer> rem, boolean dtl);
 }

@@ -10,5 +10,6 @@ package com.elektra.cadsumutils.service;
  * @author dparra
  */
 public interface LogsService {
-    public boolean error(Integer idError, Integer idApp, Integer idManh, Integer idEstacion, String pedido, int idCaja, Integer idCarrier, String numGuia, Integer idCanal, Integer idTipoPedido, String logs, String fuente, String usuario);
+    public boolean error(Integer idError, Integer idApp, Integer idManh, Integer idEstacion, String pedido, int idCaja, Integer idCarrier, String numGuia, Integer idCanal, 
+            Integer idTipoPedido, String logs, String fuente, String usuario, String ref_field_1,String ref_field_2,String ref_field_3);
 }

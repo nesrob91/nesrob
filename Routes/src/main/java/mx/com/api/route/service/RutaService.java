@@ -7,6 +7,7 @@ package mx.com.api.route.service;
 
 import java.util.List;
 import java.util.Map;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.Remision;
 import mx.com.api.route.beans.SKU;
 import mx.com.api.route.beans.Transporte;
@@ -36,5 +37,7 @@ public interface RutaService {
         String placa, String obs, String sellos, String sec, String tipoEco, Integer folenv, Integer mtvo,  
         Integer tipoRuta, Integer mdn, Integer ftfacd,Integer ftfoad, Integer ftfead, Integer ftfope, Integer ftfepe, Integer ftfoct, Integer ftfect, 
         Integer ftfocp, Integer ftfecp, String checador, String estibador ) throws Exception;
-    public boolean cancelTranrut(Integer origen, List<String> rutas);
+    public boolean cancelTranrut(Integer origen, String rutas, Integer usuario);
+    public Map<String,Object> getStatRut(Integer origen, String remision);
+    public boolean updtEntregaTienda(EntregaTienda entrega);
 }

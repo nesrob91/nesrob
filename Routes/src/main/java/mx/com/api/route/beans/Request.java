@@ -25,6 +25,8 @@ import lombok.Data;
 public class Request {
     @Schema(hidden = true)
     private Long idPeticion;
+    @Schema(hidden = true)
+    private Integer idUsuario;
     @JsonProperty(required = true)
     @Schema(description = "Centro de distibucion (3-digits)", required = true)
     @NotNull
@@ -39,8 +41,12 @@ public class Request {
     private Integer idUnidad;
     @Schema(description = "Estatus a registrar")
     private String estatus;
-    @Schema(description = "Fecha de estatus")
+    @Schema(description = "Fecha de estatus", format = "dd/mm/yy hh24:mi:ss")
     private String fecha;
+    @Schema(description = "Prueba entrega", format = "base64")
+    private String pod;
+    @Schema(description = "Persona Recibe/Comentario no entrega")
+    private String comentario;
     @Schema(description = "Tipo de Ruta (EKT only)")
     private Integer tipoRuta;
     @Schema(description = "Motivo (EKT only)")

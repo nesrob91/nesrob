@@ -6,17 +6,29 @@
 package mx.com.api.route.configuration;
 
 import com.elektra.cadsumutils.logs.error.LogsPaqueterias;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author nroblerol
  */
+@Component
 public class ConfigBean {
-    private final boolean writeActions=true;
-    private final boolean writeBD=false;
-    private final String environment="dev";
-    private final LogsPaqueterias loggerBD=new LogsPaqueterias();
-
+    @Value("${app.write.console}")
+    private boolean writeActions;
+    @Value("${app.write.bd}")
+    private boolean writeBD;
+    @Value("${app.write.all}")
+    private boolean writeAll;
+    @Value("${app.environment}")
+    private String environment;
+    
     public boolean isWriteActions() {
         return writeActions;
     }
@@ -25,12 +37,12 @@ public class ConfigBean {
         return writeBD;
     }
     
-    public LogsPaqueterias getLoggerBD(){
-        return loggerBD;
-    }
-
     public String getEnvironment() {
         return environment;
+    }
+
+    public boolean isWriteAll() {
+        return writeAll;
     }
     
 }

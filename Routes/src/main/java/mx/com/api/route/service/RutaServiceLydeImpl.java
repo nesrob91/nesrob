@@ -16,11 +16,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicLong;
 import mx.com.api.route.dao.GeneralDao;
 import mx.com.api.route.dao.RutaDao;
 import mx.com.api.route.dao.TiendaDao;
 import mx.com.api.route.dao.TransporteDao;
 import mx.com.api.route.beans.DetalleRem;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.EsquemaPago;
 import mx.com.api.route.beans.Remision;
 import mx.com.api.route.beans.SKU;
@@ -47,6 +49,8 @@ public class RutaServiceLydeImpl implements RutaService {
     private TiendaDao tiendaDao;
     @Autowired
     private LogsPaqueterias logger;
+    @Autowired
+    private AtomicLong idRequest;
 
     @Override
     public Integer getFolRut(int tipo, int almacen) {
@@ -62,6 +66,8 @@ public class RutaServiceLydeImpl implements RutaService {
         if ((Boolean) validateRem.get("error")) {
             result.put("Error", true);
             result.put("Code", (String) validateRem.get("code"));
+            if(validateRem.containsKey("folrem"))
+                result.put("Remision",(ArrayList)validateRem.get("folrem"));
             if (validateRem.containsKey("remision") && validateRem.containsKey("folios")) {
                 result.put("Folios", validateRem.get("folios"));
                 result.put("Message", "Rutas Obtenidas");
@@ -189,8 +195,9 @@ public class RutaServiceLydeImpl implements RutaService {
     public Map<String, Object> validateRemisionTranrut(List<Remision> rem) {
         Map<String, Object> validate = new HashMap<>();
         List<Map<String, Object>> remsFound = rutasDaoLyde.validateRemisionTranrut(rem);
-        List<String> folios;
+        List<String> rutas;
         List<String> guias;
+        List<String> folrems;
         if (remsFound != null) {
             if (remsFound.isEmpty()) {
                 validate.put("error", false);
@@ -203,18 +210,20 @@ public class RutaServiceLydeImpl implements RutaService {
                 String foundG = " (Remision,Guia) : {";
                 String rems = "";
                 String gs = "";
-                folios = new ArrayList<>();
+                rutas = new ArrayList<>();
                 guias = new ArrayList<>();
+                folrems=new ArrayList<>();
                 for (Map<String, Object> r : remsFound) {
+                    folrems.add(r.get("FOLDOC").toString());
                     if (r.containsKey("NUM_GUIA") && r.get("NUM_GUIA") != null) {
                         guias.add(r.get("NUM_GUIA").toString());
                         gs += (" [" + r.get("FOLDOC") + " , " + r.get("NUM_GUIA") + "] ,");
                     } else {
-                        folios.add(r.get("FOLRUT").toString());
+                        rutas.add(r.get("FOLRUT").toString());
                         rems += (" [" + r.get("FOLDOC") + " , " + r.get("FOLRUT") + "] ,");
                     }
                 }
-                if (!folios.isEmpty()) {
+                if (!rutas.isEmpty()) {
                     rems = rems.substring(0, rems.length() - 2);
                     rems = rems.substring(1, rems.length());
                     found += rems + "}";
@@ -224,15 +233,16 @@ public class RutaServiceLydeImpl implements RutaService {
                     gs = gs.substring(1, gs.length());
                     foundG += gs + "}";
                 }
-                if (!folios.isEmpty() && !guias.isEmpty()) {
+                if (!rutas.isEmpty() && !guias.isEmpty()) {
                     found += "," + foundG;
                 }
-                if (folios.isEmpty()) {
+                if (rutas.isEmpty()) {
                     found = foundG;
                 }
                 validate.put("remision", found);
+                validate.put("folrem", folrems);
                 if (guias.isEmpty()) {
-                    validate.put("folios", folios);
+                    validate.put("folios", rutas);
                 }
             }
         } else {
@@ -409,7 +419,7 @@ public class RutaServiceLydeImpl implements RutaService {
             return result;
         }else{
             kms=Integer.valueOf(kmsTR.get("kms").toString());
-            rutaLocFor=kmsTR.get("kms").toString();
+            rutaLocFor=kmsTR.get("locFor").toString();
         }
         
         String ftfact = "";
@@ -476,7 +486,7 @@ public class RutaServiceLydeImpl implements RutaService {
                 result.put("Message", s[0] + "Fallo al registrar ruta");
                 logger.insertaError(1110002, 11, 9971, 0, "", 0, 0, "", 0, 0,
                         e.getMessage(), getClass().getName() + "." + new Object() {
-                }.getClass().getEnclosingMethod().getName(), "");
+                }.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
 
             } catch (Exception ex) {
                 result.put("Message", "GRCT0:Fallo al registrar ruta");
@@ -603,6 +613,14 @@ public class RutaServiceLydeImpl implements RutaService {
                             msg = "GRCT2:";
                             throw new Exception(msg + "Fallo al registrar ruta por remison TRANRUT | Folio de ruta intentado " + folrut);
                         }
+                        EntregaTienda entrega=new EntregaTienda();
+                        entrega.setOrigen(r.getEmisor());
+                        entrega.setDestino(r.getRecept());
+                        entrega.setFolrem(r.getFolrem());
+                        entrega.setIdStatus(1);
+                        entrega.setUsuarioModificacion(Integer.parseInt(usuario));
+                        rutasDaoLyde.insEntregaTienda(entrega);
+                        rutasDaoLyde.insEntregaTiendaBit(entrega);
                     }
                 } else {
                     msg = "GRCT1:";
@@ -615,10 +633,10 @@ public class RutaServiceLydeImpl implements RutaService {
     }
 
     @Override
-    public boolean cancelTranrut(Integer origen, List<String> rutas) {
+    public boolean cancelTranrut(Integer origen, String remision, Integer usuario) {
         try {
-            if (rutasDaoLyde.cancelTranrut(origen, rutas)) {
-                rutasDaoLyde.cancelCtlflt(origen, rutas);
+            if (rutasDaoLyde.cancelTranrut(origen, remision, usuario)) {
+                rutasDaoLyde.cancelCtlflt(origen, remision, usuario);
                 return true;
             } else {
                 return false;
@@ -627,11 +645,61 @@ public class RutaServiceLydeImpl implements RutaService {
             try {
                 logger.insertaError(1110002, 11, origen, 0, "", 0, 0, "", 0, 0,
                         e.toString(), getClass().getName() + "." + new Object() {
-                }.getClass().getEnclosingMethod().getName(), "");
+                }.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
 
             } catch (Exception ex) {
             }
             return false;
         }
     }
+
+    @Override
+    public Map<String, Object> getStatRut(Integer origen, String remision) {
+        Map<String, Object> result = new HashMap<>();
+        try{
+            List<Map<String,Object>> res=rutasDaoLyde.getStatRoute(origen, remision);
+            if(res==null){
+                result.put("Error",true);
+                result.put("Mensaje","No se pudo recuperar informacion");
+                result.put("Ruta","");
+            }else if (res.isEmpty()){
+                result.put("Error",true);
+                result.put("Mensaje","No hay informacion de ruta");
+                result.put("Ruta","");
+            }else{
+                result.put("Error",false);
+                result.put("Ruta",res.get(0).get("FOLRUT").toString());
+                StringBuilder sb=new StringBuilder();
+                if(res.get(0).get("STATUS").toString().equals("C"))
+                    sb.append("Estatus Cancelada");
+                else{
+                    sb.append("Estatus ");
+                    if(res.get(0).containsKey("FECCONF") && res.get(0).get("FECCONF")!=null){
+                        sb.append("Confirmada. Confirmacion ".concat(res.get(0).get("FECCONF").toString()));
+                    }else{
+                        sb.append("Transito");
+                    }
+                    if(res.get(0).containsKey("FOLIO_NC") && res.get(0).get("FOLIO_NC")!=null){
+                        sb.append(". Con Cargo ".concat(res.get(0).get("FOLIO_NC").toString()));
+                    }
+                    if(res.get(0).containsKey("FOLIO_NE") && res.get(0).get("FOLIO_NE")!=null){
+                        sb.append(". Con NotaEntrada ".concat(res.get(0).get("FOLIO_NE").toString()));
+                    }
+                }
+                result.put("Mensaje",sb.toString());
+            }
+        }catch(Exception e){
+            result.put("Error", true);
+        }
+        return result;
+    }
+    
+    @Override
+    public boolean updtEntregaTienda(EntregaTienda entrega){
+        if(rutasDaoLyde.updtEntregaTienda(entrega))
+            return rutasDaoLyde.insEntregaTiendaBit(entrega);
+        else 
+            return false;
+    }
+    
 }

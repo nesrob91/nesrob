@@ -6,14 +6,17 @@
 package com.elektra.cadsumutils.logs.error;
 
 import com.elektra.cadsumutils.logs.error.LogsPaqueterias;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author nroblerol
  */
+@Component
 public class LogThread implements Runnable{
-
-    private final LogsPaqueterias logger = new LogsPaqueterias();
+    @Autowired
+    private LogsPaqueterias logger ;
     
     private int idManh=0;
     private String pedido="";
@@ -23,10 +26,14 @@ public class LogThread implements Runnable{
     private String msg="";
     private String method="";
     private int idApp=0;
+    private int idErr=0;
+    private String rf1="";
+    private String rf2="";
+    private String rf3="";
 
     public LogThread() {
     }
-    public LogThread(int idApp, int idManh,String pedido,int idCaja,int idCanal,int idTipoPedido,String msg,String method) {
+    public LogThread(int idErr, int idApp, int idManh,String pedido,int idCaja,int idCanal,int idTipoPedido,String msg,String method,String ref1,String ref2,String ref3) {
         this.idManh=idManh;
         this.pedido=pedido;
         this.idCaja=idCaja;
@@ -35,11 +42,15 @@ public class LogThread implements Runnable{
         this.msg=msg;
         this.method=method;
         this.idApp=idApp;
+        this.rf1=ref1;
+        this.rf2=ref2;
+        this.rf3=ref3;
+        this.idErr=idErr;
     }
     
     @Override
     public void run() {
-        logger.insertaError(100000, idApp, idManh, 0, pedido, idCaja, 0, "", idCanal, idTipoPedido, msg, method, "");
+        logger.insertaError(idErr, idApp, idManh, 0, pedido, idCaja, 0, "", idCanal, idTipoPedido, msg, method, "",rf1,rf2,rf3);
     }
 
     public void setMsg(String msg) {

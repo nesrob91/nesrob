@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.DetalleRem;
 import mx.com.api.route.beans.Remision;
@@ -31,6 +32,8 @@ public class RemisionDaoImpl implements RemisionDao{
     private LogsPaqueterias logger;
     @Autowired
     private ConfigBean configuration;
+    @Autowired
+    private AtomicLong idRequest;
     
     @Override
     public Remision getInfoRemision(Integer origen, Integer destino, Integer rem) {
@@ -79,7 +82,7 @@ public class RemisionDaoImpl implements RemisionDao{
                 logger.insertaError(1130001, 11, origen, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             res=null;
@@ -126,7 +129,7 @@ public class RemisionDaoImpl implements RemisionDao{
                 logger.insertaError(1130001, 11, origen, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             list=null;

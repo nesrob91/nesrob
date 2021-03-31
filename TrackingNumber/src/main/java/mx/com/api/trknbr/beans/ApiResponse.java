@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mx.com.api.trknbr.beans;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+
+/**
+ *
+ * @author nroblerol
+ */
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Schema(name = "Response", title = "Respuesta general de API")
+public class ApiResponse {
+    @Schema(description = "0 Procesado, 1 No procesado")
+    private String codigo;
+    @Schema(description = "Mensaje de respuesta")
+    private String mensaje;
+    @Schema(description = "Folio de peticion")
+    private String folio;
+    @Schema(description = "Resultado de Procesamiento")
+    private Response resultado;
+    
+}

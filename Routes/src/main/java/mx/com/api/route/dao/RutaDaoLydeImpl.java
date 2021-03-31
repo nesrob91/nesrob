@@ -20,6 +20,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.EsquemaPago;
 import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.Remision;
@@ -46,6 +48,8 @@ public class RutaDaoLydeImpl implements RutaDao{
     private LogsPaqueterias logger;
     @Autowired
     private ConfigBean configuration;
+    @Autowired
+    private AtomicLong idRequest;
     
     @Override
     public Integer getFolRut(int tipo, int almacen) {
@@ -78,7 +82,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1112001, 11, almacen, 0, 
                     "", 0, 0, 
                     "", 0, tipo, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -106,7 +110,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1112002, 11, almacen, 0, 
                     "", 0, 0, 
                     "", 0, tipo, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -157,16 +161,16 @@ public class RutaDaoLydeImpl implements RutaDao{
         List<String> rems;
         List<Map<String,Object>> result;
         String sql = "select distinct foldoc,folrut,status,ftfenv\n" +
-                ",olpn,pkidcajahdr,fkidestatus,num_guia,id_estatus_guia\n" +
+                //",olpn,pkidcajahdr,fkidestatus,num_guia,id_estatus_guia\n" +
             "from info_cd.tranrut t\n" +
                 "join info_cd.ctlflt c on fttdao=origen and fttdad = destino and ftruta=folrut \n"+
-                "left join (\n" +
-                "  select id_manh,pkidcajahdr,olpn,fkidestatus,num_guia,id_estatus_guia\n" +
-                "  from info_cd.ecom_caja_dtl cd \n" +
-                "  join info_cd.ecom_caja_hdr ch on pkidcajahdr=fkidcajahdr and fkidestatus = 2\n" +
-                "  left join info_cd.ce_control_guias cg on pkidcajahdr=cg.ref_field_2 and id_estatus_guia = 10\n" +
-                "  where ch.id_manh = 324\n" +
-                ") g on g.olpn=to_char(foldoc)\n" +
+                //"left join (\n" +
+                //"  select id_manh,pkidcajahdr,olpn,fkidestatus,num_guia,id_estatus_guia\n" +
+                //"  from info_cd.ecom_caja_dtl cd \n" +
+                //"  join info_cd.ecom_caja_hdr ch on pkidcajahdr=fkidcajahdr and fkidestatus = 2\n" +
+                //"  left join info_cd.ce_control_guias cg on pkidcajahdr=cg.ref_field_2 and id_estatus_guia = 10\n" +
+                //"  where ch.id_manh = 324\n" +
+                //") g on g.olpn=to_char(foldoc)\n" +
             "where (origen,destino,foldoc ) in ( :v_emi_rec_fol ) \n" +
             "--and destino = tabla_datos(v_concat).receptor\n" +
             "--and foldoc = tabla_datos(v_concat).folrem\n" +
@@ -217,7 +221,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1110002, 11, 0, 0, 
                     aplicacion, 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             fe=0;
@@ -302,7 +306,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1190001, 11, emisor, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             iva=-1;
@@ -327,7 +331,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1190001, 11, 0, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -367,7 +371,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1110001, 11, origen, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             kmsTR.put("error",0.0);
@@ -395,7 +399,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1110001, 11, origen, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -514,7 +518,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1113001, 11, origen, 0, 
                     folrut+"", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             insert = false;
@@ -560,7 +564,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                 logger.insertaError(1113002, 11, origen, 0, 
                     folrut+"", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             insert = false;
@@ -569,20 +573,23 @@ public class RutaDaoLydeImpl implements RutaDao{
     }
     
     @Override
-    public boolean cancelTranrut(Integer origen, List<String> rutas){
-        String sql="update info_cd.tranrut set status = 'C' where origen = :origen and folrut in (:foldoc)";
+    public boolean cancelTranrut(Integer origen, String remision, Integer usuario){
+        String sql="update info_cd.tranrut set status = 'C' where origen = :origen and foldoc in (:foldoc) and status = 'A'";
         Map<String,Object> param=new HashMap<>();
         param.put("origen",origen);
-        param.put("foldoc",rutas);
+        param.put("foldoc",remision);
         return sccpConnection.update(sql, param)>0;
     }
 
     @Override
-    public boolean cancelCtlflt(Integer origen, List<String> rutas) {
-        String sql = "update info_cd.ctlflt set ftcans = 'C' where fttdao = :origen and ftruta in (:foldoc)  and fttope = 3";
+    public boolean cancelCtlflt(Integer origen, String remision, Integer usuario) {
+        //ftusercans
+        String sql = "update info_cd.ctlflt set ftcans = 'C' where fttdao = :origen and ftruta in ("
+                + "select folrut from info_cd.tranrut where origen = :origen and foldoc in (:foldoc) and status = 'A' \n"
+                + ")  and fttope = 3";
         Map<String,Object> param=new HashMap<>();
         param.put("origen",origen);
-        param.put("foldoc",rutas);
+        param.put("foldoc",remision);
         return sccpConnection.update(sql, param)>0;
     }
     
@@ -591,7 +598,7 @@ public class RutaDaoLydeImpl implements RutaDao{
         List<EsquemaPago> conceptos=new ArrayList<>();
         String sql = "select \n" +
             "--info guia base\n" +
-            "cpd.origen,cpd.tienda destino,cpd.importe importe_guia_gase,proveedor,unidad_afecta,tipo_flete,moneda      \n" +
+            "cpd.origen,cpd.tienda destino,cpd.importe importe_guia_base,proveedor,unidad_afecta,tipo_flete,moneda \n" +
             "--info proveedor\n" +
             ",t.TRAPRO, t.TRARZO, t.TRACD\n" +
             "--info tipo contenido \n" +
@@ -619,8 +626,10 @@ public class RutaDaoLydeImpl implements RutaDao{
             "left join info_cd.tra150f t on cpd.PROVEEDOR=t.TRAPRO\n" +
             "where 1=1\n" +
             "and cpd.status = 1\n" +
-            "and cpd.ORIGEN = :origen and tienda = :destino--2185--9757--1135--100\n" +
-            "--and cpd.proveedor = :proveedor";
+            "and cpd.ORIGEN = :origen and tienda = :destino \n" +
+                //"--9879--3120--2185--9757--1135--100\n" +
+            "--and cpd.proveedor = :proveedor \n" +
+            "order by origen,destino, unidad_afecta";
         Map<String,Object> param=new HashMap<>();
         try{
             param.put("origen",origen);
@@ -646,7 +655,7 @@ public class RutaDaoLydeImpl implements RutaDao{
                     ep.setMoneda(rs.getString("MONEDA"));
                     ep.setNivelClasificacion(rs.getInt("NIVEL_CLASIFICACION"));
                     ep.setOrigen(rs.getInt("ORIGEN"));
-                    ep.setProveedor(rs.getString("IMPORTE_ACCESORIO"));
+                    ep.setProveedor(rs.getString("PROVEEDOR"));
                     ep.setTipoPago(rs.getInt("TIPO_GUIA"));
                     ep.setVolumenSCBase(rs.getInt("VOL_BASE"));
                     ep.setVolumenMin(rs.getInt("VOLUMEN_MIN"));
@@ -659,4 +668,84 @@ public class RutaDaoLydeImpl implements RutaDao{
         }
         return conceptos;
     }
+
+    @Override
+    public List<Map<String, Object>> getStatRoute(Integer origen, String ruta) {
+        List<Map<String, Object>> result=new ArrayList<>();
+        String sql = "select t.foldoc,t.folrut,t.status,t.fecproc, to_char(t.fecproc,'dd/mm/yy hh24:mi:ss') fecha_proc,t.fecconf,to_char(t.fecconf,'dd/mm/yy hh24:mi:ss') fecha_conf,c.ftfenv\n" +
+            ",nh.folio folio_nc,nh.remision remision_nc, nh.STATUS status_nc\n" +
+            ",ne.NUM_NOTA_ENTRADA folio_ne, ne.remision remision_ne, ne.NUM_NOTA_CARGO, ne.STATUS status_ne\n" +
+            "from info_cd.tranrut t\n" +
+            "left join info_cd.ctlflt c on fttdao=origen and fttdad = destino and ftruta=folrut                 \n" +
+            "left join info_cd.notacargohdr nh on nh.CD_ID=324 and nh.REMISION=to_char(t.foldoc)\n" +
+            "left join info_cd.nota_entrada_hdr ne on ne.CLAVE_ALMACEN_ORIGEN=324 and ne.REMISION=to_char(t.foldoc)\n" +
+            "where 1=1\n" +
+            "and (t.origen,t.foldoc ) in ( (:origen,:folrut) ) \n" +
+            "and t.tipodoc=3 \n" +
+                "order by t.status,fecproc desc";
+        Map<String,Object> paramMap=new HashMap<>();
+        try{
+            paramMap.put("origen",origen);
+            paramMap.put("folrut",ruta);
+            result=sccpConnection.queryForList(sql, paramMap);
+        }catch(EmptyResultDataAccessException e){
+            
+        }catch(Exception e){
+            result = null;
+        }
+        return result;
+    }
+
+    @Override
+    public boolean insEntregaTienda(EntregaTienda entrega) {
+        String sql="insert into info_cd.rem_entrega_tienda(origen,destino,folrem,id_status_entrega,usuario_modificacion) values (:origen,:destino,:folrem,:estatus,:usuario)";
+        Map<String,Object> paramMap=new HashMap<>();
+        try{
+            paramMap.put("origen",entrega.getOrigen());
+            paramMap.put("destino",entrega.getDestino());
+            paramMap.put("folrem",entrega.getFolrem());
+            paramMap.put("estatus",entrega.getIdStatus());
+            paramMap.put("usuario",entrega.getUsuarioModificacion());
+            return sccpConnection.update(sql, paramMap)>0;
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    @Override
+    public boolean updtEntregaTienda(EntregaTienda entrega) {
+        String sql="update info_cd.rem_entrega_tienda set id_status_entrega=:estatus, persona_recibe=:persona, pod=:prueba, fecha_entrega=to_date(:fecha,'dd/mm/yy hh24:mi:ss'), usuario_modificacion=:usuario\n" +
+            "where origen=:origen and folrem=:folrem";
+        Map<String,Object> paramMap=new HashMap<>();
+        try{
+            paramMap.put("origen",entrega.getOrigen());
+            paramMap.put("folrem",entrega.getFolrem());
+            paramMap.put("estatus",entrega.getIdStatus());
+            paramMap.put("usuario",entrega.getUsuarioModificacion());
+            paramMap.put("persona",entrega.getPersonaRecibe());
+            paramMap.put("prueba",entrega.getUsuarioModificacion());
+            paramMap.put("fecha",entrega.getFechaEntrega());
+            return sccpConnection.update(sql, paramMap)>0;
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    @Override
+    public boolean insEntregaTiendaBit(EntregaTienda entrega) {
+        String sql="insert into info_cd.rem_entrega_tienda_bit(origen,destino,folrem,id_status_entrega,usuario_modificacion,comentario,fecha) values (:origen,:destino,:folrem,:estatus,:usuario,:comentario,sysdate)";
+        Map<String,Object> paramMap=new HashMap<>();
+        try{
+            paramMap.put("origen",entrega.getOrigen());
+            paramMap.put("destino",entrega.getDestino());
+            paramMap.put("folrem",entrega.getFolrem());
+            paramMap.put("estatus",entrega.getIdStatus());
+            paramMap.put("usuario",entrega.getUsuarioModificacion());
+            paramMap.put("comentario",entrega.getComentario());
+            return sccpConnection.update(sql, paramMap)>0;
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
 }

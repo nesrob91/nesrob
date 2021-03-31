@@ -11,8 +11,11 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+import mx.com.api.route.beans.Almacen;
 import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.SKU;
+import mx.com.api.route.beans.User;
 import mx.com.api.route.beans.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -33,6 +36,8 @@ public class GeneralDaoImpl implements GeneralDao{
     private LogsPaqueterias logger;
     @Autowired
     private ConfigBean configuration;
+    @Autowired
+    private AtomicLong idRequest;
 
     @Override
     public String getRequestCount() {
@@ -85,7 +90,7 @@ public class GeneralDaoImpl implements GeneralDao{
                 System.out.println("ERROR : "+e.getMessage());
             try{
                 logger.insertaError(1180003, 11, 0, 0, "", 0, 0, "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){}
             result = null;
         }
@@ -110,7 +115,7 @@ public class GeneralDaoImpl implements GeneralDao{
                 System.out.println("ERROR : "+e.getMessage());
             try{
                 logger.insertaError(1120001, 11, 0, 0, "", 0, 0, "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), usuario);
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), usuario);//, idRequest.toString(), "","");
             }catch(Exception ex){}
             idUser = null;
         }
@@ -148,7 +153,7 @@ public class GeneralDaoImpl implements GeneralDao{
                 System.out.println("ERROR : "+e.getMessage());
             try{
                 logger.insertaError(1120001, 11, 0, 0, "", 0, 0, "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), user+"");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), user+"");//, idRequest.toString(), "","");
             }catch(Exception ex){}
             u = null;
         }
@@ -198,7 +203,7 @@ public class GeneralDaoImpl implements GeneralDao{
                     System.out.println("ERROR : "+e.getMessage());
                 try{
                     logger.insertaError(1110001, 11, 0, 0, "", 0, 0, "", 0, 0, 
-                        e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                        e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
                 }catch(Exception ex){
                 }
                 ceco = null;
@@ -218,14 +223,61 @@ public class GeneralDaoImpl implements GeneralDao{
     }
     
     @Override
-    public Integer getIdSapAlmn(Integer idManh) {
-        String sql="select nvl(almjd,almmn) from info_cd.e3altwhs where almmn = :idOri";
+    public Almacen getInfoAlmn(Integer idAlm) {
+        String sql="select almmn,almjd,desjd from info_Cd.e3altwhs where \n" +
+            "(almjd = :idOri or almmn = :idOri)";
         try{
             Map<String,Object> paramMap=new HashMap<>();
-            paramMap.put("idOri",idManh);
-            return sccpConnection.queryForObject(sql, paramMap, Integer.class);
+            paramMap.put("idOri",idAlm);
+            return sccpConnection.queryForObject(sql, paramMap, new RowMapper<Almacen>() {
+                @Override
+                public Almacen mapRow(ResultSet rs, int i) throws SQLException {
+                   Almacen alm=new Almacen();
+                   alm.setIdManh(rs.getInt("ALMMN"));
+                   alm.setIdSap(rs.getInt("ALMJD"));
+                   alm.setDesc(rs.getString("DESJD"));
+                   return alm;
+                }
+            });
         }catch(Exception e){
-            return 0;
+            return null;
+        }
+    }
+    
+    @Override
+    public User findByUsername(String user){
+        User use=new User();
+        String sql="select id_usuario,password from info_Cd.ektd_usuarios where \n" +
+            "id_usuario = :usernam ";
+        try{
+            Map<String,Object> paramMap=new HashMap<>();
+            paramMap.put("usernam",user);
+            return sccpConnection.queryForObject(sql, paramMap, new RowMapper<User>() {
+                @Override
+                public User mapRow(ResultSet rs, int i) throws SQLException {
+                   User alm=new User();
+                   alm.setUsername(rs.getString("id_usuario"));
+                   alm.setPassword(rs.getString("password"));
+                   return alm;
+                }
+            });
+        }catch(Exception e){ 
+            return null;
+        }
+    }
+    
+    @Override
+    public boolean saveByUsername(User user){
+        User use=new User();
+        String sql="insert into info_Cd.ektd_usuarios (id_usuario,password,fecha_alta,almacen,perfil) values \n" +
+            "(:usernam,:auth2,sysdate,9971,1)";
+        try{
+            Map<String,Object> paramMap=new HashMap<>();
+            paramMap.put("usernam",user.getUsername());
+            paramMap.put("auth2",user.getPassword());
+            return sccpConnection.update(sql, paramMap)>0;
+        }catch(Exception e){
+            return false;
         }
     }
 }

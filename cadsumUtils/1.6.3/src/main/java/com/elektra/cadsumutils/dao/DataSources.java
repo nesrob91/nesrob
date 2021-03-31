@@ -5,8 +5,11 @@
  */
 package com.elektra.cadsumutils.dao;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,46 +19,98 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  * @author dparra
  */
 @Configuration
+@PropertySources({
+    @PropertySource("classpath:data.properties")
+})
 public class DataSources {
+    @Value("${datasource.um.url}")
+    private String dbUrlUM;
+    @Value("${datasource.um.username}")
+    private String dbUserUM;
+    @Value("${datasource.um.password}")
+    private String dbAuthUM;
+    @Value("${datasource.um.driver-class-name}")
+    private String dbDriverUM;
+
+    @Value("${datasource.scpp.url}")
+    private String dbUrlScpp;
+    @Value("${datasource.scpp.username}")
+    private String dbUserScpp;
+    @Value("${datasource.scpp.password}")
+    private String dbAuthScpp;
+    @Value("${datasource.scpp.driver-class-name}")
+    private String dbDriverScpp;
     
-    private DriverManagerDataSource conexionInfoCd() {
+    @Value("${datasource.wm18.url}")
+    private String dbUrlWm18;
+    @Value("${datasource.wm18.username}")
+    private String dbUserWm18;
+    @Value("${datasource.wm18.password}")
+    private String dbAuthWm18;
+    @Value("${datasource.wm18.driver-class-name}")
+    private String dbDriverWm18;
+    
+    @Value("${datasource.dom18.url}")
+    private String dbUrlDom18;
+    @Value("${datasource.dom18.username}")
+    private String dbUserDom18;
+    @Value("${datasource.dom18.password}")
+    private String dbAuthDom18;
+    @Value("${datasource.dom18.driver-class-name}")
+    private String dbDriverDom18;
+    
+    @Value("${datasource.wm18updt.url}")
+    private String dbUrlWm18updt;
+    @Value("${datasource.wm18updt.username}")
+    private String dbUserWm18updt;
+    @Value("${datasource.wm18updt.password}")
+    private String dbAuthWm18updt;
+    @Value("${datasource.wm18updt.driver-class-name}")
+    private String dbDriverWm18updt;
+    
+    private DriverManagerDataSource conexionUM() {
         
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl("jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST = (LOAD_BALANCE = off)  (FAILOVER = ON) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.82.26.56)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.82.26.57)(PORT = 1521)))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = LECTURA_SCPP)(FAILOVER_MODE =(TYPE = SELECT) (METHOD = BASIC) (BACKUP = LECTURA_SCPP) (RETRIES = 180)  (DELAY = 5))))");
-        dataSource.setUsername("info_cd");
-        dataSource.setPassword("info_cd_22_fhrt");
-
+        dataSource.setDriverClassName(dbDriverUM);
+        dataSource.setUrl(dbUrlUM);
+        dataSource.setUsername(dbUserUM);
+        dataSource.setPassword(dbAuthUM);
+        return dataSource;
+    }
+    
+    private DriverManagerDataSource conexionInfoCd() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(dbDriverScpp);
+        dataSource.setUrl(dbUrlScpp);
+        dataSource.setUsername(dbUserScpp);
+        dataSource.setPassword(dbAuthScpp);
         return dataSource;
     }
     
     private DriverManagerDataSource conexionWm2018() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl("jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST = (LOAD_BALANCE = off)  (FAILOVER = ON) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.54.75.87)(PORT = 1521)) )(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = manbdqa)(FAILOVER_MODE =(TYPE = SELECT) (METHOD = BASIC)  (RETRIES = 180)  (DELAY = 5))))");
-        dataSource.setUsername("LECTURA_CADSUM_DIST");
-        dataSource.setPassword("C4DSUMD1ST");
-
+        dataSource.setDriverClassName(dbDriverWm18);
+        dataSource.setUrl(dbUrlWm18);
+        dataSource.setUsername(dbUserWm18);
+        dataSource.setPassword(dbAuthWm18);
         return dataSource;
     }
     
     private DriverManagerDataSource conexionWm2018Upd() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl("jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST = (LOAD_BALANCE = off)  (FAILOVER = ON) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.54.75.87)(PORT = 1521)) )(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = manbdqa)(FAILOVER_MODE =(TYPE = SELECT) (METHOD = BASIC)  (RETRIES = 180)  (DELAY = 5))))");
-        dataSource.setUsername("WMR_SSD_ELEKDIS");
-        dataSource.setPassword("u5r3L3kWmRDe54");
-
+        dataSource.setDriverClassName(dbDriverWm18updt);
+        dataSource.setUrl(dbUrlWm18updt);
+        dataSource.setUsername(dbUserWm18updt);
+        dataSource.setPassword(dbAuthWm18updt);
         return dataSource;
     }
     
     private DriverManagerDataSource conexionDom2018() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl("jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST = (LOAD_BALANCE = off)  (FAILOVER = ON) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.54.75.87)(PORT = 1521)) )(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = manbdqa)(FAILOVER_MODE =(TYPE = SELECT) (METHOD = BASIC)  (RETRIES = 180)  (DELAY = 5))))");
-        dataSource.setUsername("LECTURA_CADSUM_DIST");
-        dataSource.setPassword("C4DSUMD1ST");
-
+        dataSource.setDriverClassName(dbDriverDom18);
+        dataSource.setUrl(dbUrlDom18);
+        dataSource.setUsername(dbUserDom18);
+        dataSource.setPassword(dbAuthDom18);
         return dataSource;
     }
     
@@ -64,22 +119,28 @@ public class DataSources {
     public JdbcTemplate jdbcTemplate2010(){
         return new JdbcTemplate(conexionInfoCd());
     }*/
-    @Bean(name = "namedTemplate2010")
+    
+    @Bean(name = "um")
+    public NamedParameterJdbcTemplate namedTemplateUM(){
+        return new NamedParameterJdbcTemplate(conexionUM());
+    }
+    
+    @Bean(name = "scpp")
     public NamedParameterJdbcTemplate namedTemplate2010(){
         return new NamedParameterJdbcTemplate(conexionInfoCd());
     }
     
-    @Bean(name = "namedTemplate2018")
+    @Bean(name = "wm18")
     public NamedParameterJdbcTemplate namedTemplate2018(){
         return new NamedParameterJdbcTemplate(conexionWm2018());
     }
     
-    @Bean(name = "namedTemplateDom2018")
+    @Bean(name = "dom18")
     public NamedParameterJdbcTemplate namedTemplateDom2018(){
         return new NamedParameterJdbcTemplate(conexionDom2018());
     }
     
-    @Bean(name = "namedTemplate2018Upd")
+    @Bean(name = "wm18upd")
     public NamedParameterJdbcTemplate namedTemplate2018Upd(){
         return new NamedParameterJdbcTemplate(conexionWm2018Upd());
     }

@@ -6,8 +6,10 @@
 package mx.com.api.route.service;
 
 import java.util.List;
+import mx.com.api.route.beans.Almacen;
 import mx.com.api.route.dao.GeneralDao;
 import mx.com.api.route.beans.SKU;
+import mx.com.api.route.beans.User;
 import mx.com.api.route.beans.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +49,17 @@ public class GeneralServiceImpl implements GeneralService{
     }
     
     @Override
-    public Integer getIdSapAlmn(Integer idManh) {
-        return generalDao.getIdSapAlmn(idManh);
+    public Almacen getInfoAlmn(Integer idAlm) {
+        return generalDao.getInfoAlmn(idAlm);
+    }
+    
+    @Override
+    public User findByUsername(String user) {
+        return generalDao.findByUsername(user);
+    }
+    
+    @Override
+    public boolean saveByUsername(User user){
+        return generalDao.saveByUsername(user);
     }
 }

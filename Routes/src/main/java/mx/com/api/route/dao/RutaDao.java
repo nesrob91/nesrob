@@ -7,6 +7,7 @@ package mx.com.api.route.dao;
 
 import java.util.List;
 import java.util.Map;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.EsquemaPago;
 import mx.com.api.route.beans.Remision;
 
@@ -42,7 +43,11 @@ public interface RutaDao {
         String estibador     );
     public boolean insertCtlfltd(Integer origen, Integer destino, Integer folrut, Integer folrem);
     public boolean insertTranrut(Integer origen, Integer destino, Integer folrut, Integer folrem, Integer fecart);
-    public boolean cancelTranrut(Integer origen, List<String> rutas);
-    public boolean cancelCtlflt(Integer origen, List<String> rutas);
+    public boolean cancelTranrut(Integer origen, String remision, Integer usuario);
+    public boolean cancelCtlflt(Integer origen, String remision, Integer usuario);
     public List<EsquemaPago> getConceptosPago(Integer origen, Integer destino, Integer proveedor);
+    public List<Map<String,Object>> getStatRoute(Integer origen, String ruta);
+    public boolean insEntregaTienda(EntregaTienda entrega);
+    public boolean insEntregaTiendaBit(EntregaTienda entrega);
+    public boolean updtEntregaTienda(EntregaTienda entrega);
 }

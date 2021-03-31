@@ -26,5 +26,7 @@ public class FolioResponse {
     private String ruta;
     @Schema(description = "Mensaje de procesamiento")
     private String resultado;
+    @Schema(description = "Resultado de procesamiento")
+    private Integer estatus;
     
 }

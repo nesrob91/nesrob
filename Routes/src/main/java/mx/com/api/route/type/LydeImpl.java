@@ -29,9 +29,11 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Base64;
 import java.util.HashMap;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.FolioResponse;
 import mx.com.api.route.beans.FoliosResponse;
 import mx.com.api.route.beans.ResponseRuta;
+import mx.com.api.route.enums.StatEntregaTienda;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 /**
@@ -55,13 +57,13 @@ public class LydeImpl implements RutaIfc{
     private NamedParameterJdbcTemplate sccpConnection;
     
     @Override
-    public ResponseRuta generateFolRut(int origen, int folioLyde, List<Integer> rem, int idTransporte, int eco, int tipRuta, Integer mtvo, int sec, String sello, String checador, String estibador, boolean isExternal){
+    public ResponseRuta generateFolRut(int usuario, int origen, int folioLyde, List<Integer> rem, int idTransporte, int eco, int tipRuta, Integer mtvo, int sec, String sello, String checador, String estibador, boolean isExternal){
         ResponseRuta resp = new ResponseRuta();
         FoliosResponse folsProc = new FoliosResponse();
-        Usuario user = generalService.getInfoUsuario(1002);//2250
+        Usuario user = generalService.getInfoUsuario(usuario);//2250
         if(user!=null){
             if(!user.getUSUARIO().equals("ERROR")){
-                List<Remision> rems=remisionService.getInfoRemision(origen, 0, rem);
+                List<Remision> rems=remisionService.getInfoRemision(origen, 0, rem, true);
                 if(rems==null){
                     resp.setError(true);
                     resp.setCode("GRTGR0001");
@@ -75,11 +77,13 @@ public class LydeImpl implements RutaIfc{
                         for(Remision r : rems){
                             switch(r.getStsreg()){
                                 case 1: case 5:
+                                    resp.setError(false);
                                     break;
                                 default:
                                     resp.setError(true);
                                     resp.setCode("GRTGR0002");
                                     resp.setMensaje("Una o mas Remisiones con Estatus Invalido");
+                                    resp.setEstatus(1);
                                     break;
                             }
                         }
@@ -163,9 +167,21 @@ public class LydeImpl implements RutaIfc{
                                                     resp.setMensaje((String)resultRuta.get("Message"));
                                                     if(resultRuta.containsKey("Folios")){
                                                         resp.setError(false);
+                                                        resp.setEstatus(0);
                                                         resp.setCode("GRTOK");
                                                         resp.setRuta((ArrayList)resultRuta.get("Folios"));
                                                         resp.setMensaje((String)resultRuta.get("Message"));
+                                                        resp.setFolEnvio(0);
+                                                        List<FolioResponse> listProc=new ArrayList<>();
+                                                        for(String s:(ArrayList<String>)resultRuta.get("Remision")){
+                                                            FolioResponse folProc=new FolioResponse();
+                                                            folProc.setRemision(s);
+                                                            folProc.setResultado("Ruta Obtenida");
+                                                            folProc.setEstatus(0);
+                                                            listProc.add(folProc);
+                                                        }
+                                                        folsProc.setFolio(listProc);
+                                                        resp.setFolios(folsProc);
                                                     }
                                                 }else{
                                                     //folioLyde -> folEnv : check for future usage, (currently 3PLs do not care (Lyde, as of feb 2021))
@@ -208,16 +224,16 @@ public class LydeImpl implements RutaIfc{
                                                                     u.setMts(0);
                                                                     u.setChofer("");
                                                                     rutas.add(lastFolrut+"");
-                                                                    rutaServiceLyde.insertsRutas(rems, t, u, 0, lastFolrut, 0, "MEX", 0, 0, "0", "0", "L", 0, 0, 0, 0, 0, 0, 0, 0, 0, "1002", "", "", "", isExternal?checador:"GENRUTAS_LYDE", "", "", "", folioLyde, mtvo, tipRuta, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, isExternal?"":checador, estibador);
+                                                                    rutaServiceLyde.insertsRutas(rems, t, u, 0, lastFolrut, 0, "MEX", 0, 0, "0", "0", "L", 0, 0, 0, 0, 0, 0, 0, 0, 0, usuario+"", "", "", "", isExternal?checador:"GENRUTAS_LYDE", "", "", "", folioLyde, mtvo, tipRuta, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, isExternal?"":checador, estibador);
                                                                 }catch(Exception e){
                                                                     resp.setError(true);
                                                                     resp.setCode("GRTINS0001");
                                                                     resp.setMensaje("No se registro ruta");
-                                                                    rutaServiceLyde.cancelTranrut(origen,rutas);//maybe this doesnt matter ? tranrut is never inserted if ctlflt fails 
+                                                                    //rutaServiceLyde.cancelTranrut(origen,rutas);//maybe this doesnt matter ? tranrut is never inserted if ctlflt fails 
                                                                     return resp;
                                                                 }
                                                             }else{
-                                                                Map<String,Object> resultInsert=rutaServiceLyde.insertRuta(tipRuta, trans.get(0), uni, entry.getValue(), mtsModif, 1002, mtvo, "GENRUTAS_LYDE", "0", sec, folioLyde, 0, 0, 0, 0, checador, estibador, lastFolrut);
+                                                                Map<String,Object> resultInsert=rutaServiceLyde.insertRuta(tipRuta, trans.get(0), uni, entry.getValue(), mtsModif, usuario, mtvo, "GENRUTAS_LYDE", "0", sec, folioLyde, 0, 0, 0, 0, checador, estibador, lastFolrut);
                                                                 if((Boolean)resultInsert.get("Error")){
                                                                     result.put("Error",(true));
                                                                     result.put("Code",(resultInsert.get("Code").toString()));
@@ -228,12 +244,18 @@ public class LydeImpl implements RutaIfc{
                                                                     FolioResponse folProc=new FolioResponse();
                                                                     folProc.setRemision(entry.getValue().get(0).getFolrem());
                                                                     folProc.setResultado((String)resultInsert.get("Message"));
+                                                                    folProc.setEstatus(1);
                                                                     listProc.add(folProc);
+                                                                    if(result.containsKey("count"))
+                                                                        result.put("count",(Integer)result.get("count")+1);
+                                                                    else
+                                                                        result.put("count",1);
                                                                 }else{
                                                                     rutas.add(lastFolrut+"");
                                                                     FolioResponse folProc=new FolioResponse();
                                                                     folProc.setRemision(entry.getValue().get(0).getFolrem());
                                                                     folProc.setResultado("Ruta Creada");
+                                                                    folProc.setEstatus(0);
                                                                     listProc.add(folProc);
                                                                 }
                                                             }
@@ -248,6 +270,7 @@ public class LydeImpl implements RutaIfc{
                                                     resp.setFolios(folsProc);
                                                     resp.setEstatus(0);
                                                     if(result.containsKey("Error")){
+                                                        resp.setError(true);
                                                         resp.setEstatus(1);
                                                         if((Integer)result.get("count")==groupByRecept.size()){
                                                             resp.setMensaje("No se crearon rutas");
@@ -271,7 +294,7 @@ public class LydeImpl implements RutaIfc{
             }else{
                 resp.setError(true);
                 resp.setCode("GRTVU0002");
-                resp.setMensaje("No existe el usuario "+1002);
+                resp.setMensaje("No existe el usuario "+usuario);
             }
         }else{
             resp.setError(true);
@@ -314,6 +337,117 @@ public class LydeImpl implements RutaIfc{
             //}
         }
         return base64Document; 
+    }
+
+    @Override
+    public ResponseRuta cancelFolRut(int origen, List<String> remision, Integer usuario) {
+        ResponseRuta resp=new ResponseRuta();
+        int cancelCounter=0;
+        FoliosResponse folsRes=new FoliosResponse();
+        List<FolioResponse> fols=new ArrayList<>();
+        for(String s:remision){
+            FolioResponse fol=new FolioResponse();
+            if(rutaServiceLyde.cancelTranrut(origen,s,usuario)){
+                fol.setRuta(s);
+                fol.setResultado("Ruta Cancelada");
+                cancelCounter++;
+            }else{
+                fol.setRuta(s);
+                fol.setResultado("Ruta No Cancelada");
+            }
+            fols.add(fol);
+        }
+        folsRes.setFolio(fols);
+        resp.setFolios(folsRes);
+        if(cancelCounter==0){
+            resp.setEstatus(-3);
+            resp.setMensaje("No se cancelaron las rutas");
+        }else if(cancelCounter<remision.size()){
+            resp.setEstatus(1);
+            resp.setMensaje("Cancelacion parcial");
+        }else{
+            resp.setEstatus(0);
+            resp.setMensaje("Rutas Canceladas");
+        }
+        return resp;
+    }
+
+    @Override
+    public ResponseRuta modifyFolRut(int origen, List<Integer> rems, Integer usuario, String fecha, String estatus, String comentario, String pod) {
+        ResponseRuta resp=new ResponseRuta();
+        int modifyCounter=0;
+        FoliosResponse folsRes=new FoliosResponse();
+        List<FolioResponse> fols=new ArrayList<>();
+        List<Remision> remsInfo=remisionService.getInfoRemision(origen, 0, rems, false);
+        for(Remision s:remsInfo){
+            FolioResponse fol=new FolioResponse();
+            EntregaTienda entrega=new EntregaTienda();
+            entrega.setOrigen(origen);
+            entrega.setDestino(s.getRecept());
+            entrega.setFolrem(s.getFolrem());
+            entrega.setIdStatus(StatEntregaTienda.valueOf(estatus).getIdStatEntrega());
+            entrega.setUsuarioModificacion(usuario);
+            entrega.setFechaEntrega(fecha);
+            if(StatEntregaTienda.valueOf(estatus).getIdStatEntrega()==StatEntregaTienda.ENTREGADO.getIdStatEntrega()){
+                entrega.setPersonaRecibe(comentario);
+                entrega.setPod(pod);
+                entrega.setComentario(null);
+            }else{
+                entrega.setComentario(comentario);
+                entrega.setPersonaRecibe(null);
+                entrega.setPod(null);
+            }
+            if(rutaServiceLyde.updtEntregaTienda(entrega)){
+                fol.setRemision(s.getFolrem());
+                fol.setResultado("Estatus registrado");
+                modifyCounter++;
+            }else{
+                fol.setRuta(s.getFolrem());
+                fol.setResultado("Estatus no registrado");
+            }
+            fols.add(fol);
+        }
+        folsRes.setFolio(fols);
+        resp.setFolios(folsRes);
+        if(modifyCounter==0){
+            resp.setEstatus(-3);
+            resp.setMensaje("No se registraron los estatus");
+        }else if(modifyCounter<rems.size()){
+            resp.setEstatus(1);
+            resp.setMensaje("Registro parcial");
+        }else{
+            resp.setEstatus(0);
+            resp.setMensaje("Registrado exitosamente");
+        }
+        return resp;
+    }
+
+    @Override
+    public ResponseRuta getStatRut(int origen, List<String> remision) {
+        ResponseRuta resp=new ResponseRuta();
+        int statCounter=0;
+        FoliosResponse folsRes=new FoliosResponse();
+        List<FolioResponse> fols=new ArrayList<>();
+        for(String s:remision){
+            FolioResponse fol=new FolioResponse();
+            Map<String,Object> result=rutaServiceLyde.getStatRut(origen, s);
+            fol.setRemision(s);
+            fol.setRuta(result.get("Ruta").toString());
+            fol.setResultado(result.get("Mensaje").toString());
+            if(!(Boolean)result.get("Error"))
+                statCounter++;
+            fols.add(fol);
+        }
+        folsRes.setFolio(fols);
+        resp.setFolios(folsRes);
+        if(statCounter==0){
+            resp.setEstatus(-3);
+            resp.setMensaje("No se obtuvo informacion de rutas");
+        }else{
+            resp.setEstatus(0);
+            resp.setMensaje("Informacion Obtenida");
+        }
+        return resp;
     }
     
 }

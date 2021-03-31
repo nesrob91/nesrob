@@ -7,6 +7,7 @@ package mx.com.api.trknbr.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -17,6 +18,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FoliosResponse {
-    private FolioResponse folio;
+    private List<FolioResponse> pedido;
+    
     
 }

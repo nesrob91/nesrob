@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.Tienda;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,8 @@ public class TiendaDaoImpl implements TiendaDao{
     private LogsPaqueterias logger;
     @Autowired
     private ConfigBean configuration;
+    @Autowired
+    private AtomicLong idRequest;
 
     @Override
     public Tienda getInfoTienda(int tienda) {
@@ -62,7 +65,7 @@ public class TiendaDaoImpl implements TiendaDao{
                 logger.insertaError(1140001, 11, 0, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             return null;
@@ -89,7 +92,7 @@ public class TiendaDaoImpl implements TiendaDao{
                 logger.insertaError(1110001, 11, tienda, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             return null;
@@ -114,7 +117,7 @@ public class TiendaDaoImpl implements TiendaDao{
                 logger.insertaError(1110001, 11, tda, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             pais = null;

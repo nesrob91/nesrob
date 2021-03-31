@@ -7,6 +7,7 @@ package mx.com.api.trknbr.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -17,7 +18,10 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FolioResponse {
-    private String folio;
+    @Schema(description = "Folio enviado (ADN|REMISION|NC)")
+    private String pedido;
+    @Schema(description = "Mensaje de procesamiento")
     private String resultado;
+    
     
 }

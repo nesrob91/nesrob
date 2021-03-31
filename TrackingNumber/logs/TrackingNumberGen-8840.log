@@ -1,0 +1,616 @@
+2021-03-17 11:11:01,576-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 14436 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-17 11:11:01,583-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-17 11:11:02,760-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-17 11:11:02,777-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-17 11:11:02,779-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-17 11:11:02,781-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-17 11:11:02,919-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-17 11:11:02,920-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1302 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-17 11:11:04,264-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c472300, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b17d8ab, org.springframework.security.web.header.HeaderWriterFilter@e26a3df, org.springframework.web.filter.CorsFilter@5f6494c0, org.springframework.security.web.authentication.logout.LogoutFilter@3751acd7, mx.com.api.trknbr.configuration.AuthenticationFilter@6826b70f, mx.com.api.trknbr.configuration.AuthorizationFilter@4df7d9ee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@687eb455, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fdf22f7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@781dac73, org.springframework.security.web.session.SessionManagementFilter@712cd5d3, org.springframework.security.web.access.ExceptionTranslationFilter@7c4b5ceb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@26d0ece6] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-17 11:11:04,327-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-17 11:11:04,975-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-17 11:11:05,004-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-17 11:11:05,009-[INFO ] {"mensaje": "Started runner in 3.764 seconds (JVM running for 5.535) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 14:32:12,284-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 24640 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 14:32:12,292-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 14:32:13,378-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 14:32:13,394-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 14:32:13,396-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 14:32:13,397-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 14:32:13,520-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 14:32:13,520-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1187 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 14:32:14,031-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$beb225a7.idRequest()", "linea":46 }
+2021-03-18 14:32:14,673-[ERROR] {  "mensaje":"Initializated with default - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$beb225a7.idRequest()", "linea":61 }
+2021-03-18 14:32:14,845-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c5406b, org.springframework.security.web.context.SecurityContextPersistenceFilter@44641d6c, org.springframework.security.web.header.HeaderWriterFilter@32e5af53, org.springframework.web.filter.CorsFilter@66b0e207, org.springframework.security.web.authentication.logout.LogoutFilter@36ad5f2a, mx.com.api.trknbr.configuration.AuthenticationFilter@74a58a06, mx.com.api.trknbr.configuration.AuthorizationFilter@7308c820, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59d5a6fd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@166b11e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d601832, org.springframework.security.web.session.SessionManagementFilter@13ca16bf, org.springframework.security.web.access.ExceptionTranslationFilter@2bfc2f8b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59d6642a] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 14:32:14,915-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 14:32:15,511-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 14:32:15,538-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 14:32:15,539-[INFO ] {"mensaje": "Started runner in 3.599 seconds (JVM running for 5.626) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 14:34:45,533-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 14:34:45,534-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 14:34:45,540-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 14:37:31,479-[INFO ] {  "mensaje":"WSRT2021000000000000 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 14:43:48,909-[INFO ] {  "mensaje":"WSRT2021000000000001 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 14:44:10,919-[INFO ] {  "mensaje":"WSRT2021000000000002 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 14:54:08,127-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 6352 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 14:54:08,135-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 14:54:09,261-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 14:54:09,275-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 14:54:09,277-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 14:54:09,278-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 14:54:09,407-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 14:54:09,407-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1231 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 14:54:09,900-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$521aee8e.idRequest()", "linea":46 }
+2021-03-18 14:54:10,585-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4baf997, org.springframework.security.web.context.SecurityContextPersistenceFilter@3c60c681, org.springframework.security.web.header.HeaderWriterFilter@5a3cf824, org.springframework.web.filter.CorsFilter@5280688, org.springframework.security.web.authentication.logout.LogoutFilter@ff0e6d4, mx.com.api.trknbr.configuration.AuthenticationFilter@643f6179, mx.com.api.trknbr.configuration.AuthorizationFilter@61ab6521, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a1371, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b3f4bd8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@328e4ec2, org.springframework.security.web.session.SessionManagementFilter@28367da7, org.springframework.security.web.access.ExceptionTranslationFilter@70c491b8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@729cd862] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 14:54:10,653-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 14:54:11,254-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 14:54:11,295-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 14:54:11,298-[INFO ] {"mensaje": "Started runner in 3.524 seconds (JVM running for 5.387) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 14:54:17,912-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 14:54:17,913-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 14:54:17,920-[INFO ] {"mensaje": "Completed initialization in 7 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 14:54:28,077-[INFO ] {  "mensaje":"WSRT2021000000000001 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 14:55:18,278-[INFO ] {  "mensaje":"WSRT2021000000000001 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 15:01:21,006-[INFO ] {  "mensaje":"WSRT2021000000000002 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:01:28,064-[INFO ] {  "mensaje":"WSRT2021000000000002 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 15:01:32,550-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:01:41,505-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 15:01:46,089-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:02:31,872-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 15:07:02,410-[ERROR] {"mensaje": "Servlet.service() for servlet [dispatcherServlet] in context with path [/wsGuia] threw exception -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].[dispatcherServlet].log()", "linea": 175 }
+java.lang.RuntimeException: Could not read requestcom.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "password" (class mx.com.api.trknbr.beans.User), not marked as ignorable (2 known properties: "auth", "username"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 3, column: 17] (through reference chain: mx.com.api.trknbr.beans.User["password"])
+	at mx.com.api.trknbr.configuration.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:45) ~[classes/:?]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.2.1.RELEASE.jar:5.2.1.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.30.jar:9.0.30]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-03-18 15:09:57,674-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 21692 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 15:09:57,681-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 15:09:58,775-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 15:09:58,790-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:09:58,791-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 15:09:58,792-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 15:09:58,917-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:09:58,918-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1203 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 15:09:59,419-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$5842ca22.idRequest()", "linea":46 }
+2021-03-18 15:10:00,116-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@743bb39a, org.springframework.security.web.context.SecurityContextPersistenceFilter@11c7a0b4, org.springframework.security.web.header.HeaderWriterFilter@2b9e69fb, org.springframework.web.filter.CorsFilter@2de3b052, org.springframework.security.web.authentication.logout.LogoutFilter@5a3cf824, mx.com.api.trknbr.configuration.AuthenticationFilter@3f3c8b60, mx.com.api.trknbr.configuration.AuthorizationFilter@16bbaab3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@653a5967, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5bb2fb2b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f357c9d, org.springframework.security.web.session.SessionManagementFilter@2c579202, org.springframework.security.web.access.ExceptionTranslationFilter@650a1aff, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@83b0d0f] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 15:10:00,182-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 15:10:00,754-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:10:00,788-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 15:10:00,790-[INFO ] {"mensaje": "Started runner in 3.447 seconds (JVM running for 5.366) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 15:10:01,343-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:10:01,343-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 15:10:01,349-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 15:13:39,376-[INFO ] {"mensaje": "Shutting down ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.shutdown()", "linea": 208 }
+2021-03-18 15:13:39,514-[INFO ] {  "mensaje":"Terminated WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$5842ca22.onShutDown()", "linea":103 }
+2021-03-18 15:15:38,633-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 40768 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 15:15:38,641-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 15:15:39,770-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 15:15:39,787-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:15:39,789-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 15:15:39,789-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 15:15:39,914-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:15:39,914-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1225 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 15:15:40,409-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$bf64a1bf.idRequest()", "linea":46 }
+2021-03-18 15:15:41,095-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@99c4993, org.springframework.security.web.context.SecurityContextPersistenceFilter@5bb2fb2b, org.springframework.security.web.header.HeaderWriterFilter@63485d7, org.springframework.web.filter.CorsFilter@38089dae, org.springframework.security.web.authentication.logout.LogoutFilter@6def0632, mx.com.api.trknbr.configuration.AuthenticationFilter@9729a97, mx.com.api.trknbr.configuration.AuthorizationFilter@5dfd31f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@796c68bf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42107318, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36463b09, org.springframework.security.web.session.SessionManagementFilter@59a09be, org.springframework.security.web.access.ExceptionTranslationFilter@5c4f4330, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2de3b052] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 15:15:41,165-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 15:15:41,789-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:15:41,829-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 15:15:41,830-[INFO ] {"mensaje": "Started runner in 3.55 seconds (JVM running for 5.427) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 15:15:48,931-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:15:48,931-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 15:15:48,937-[INFO ] {"mensaje": "Completed initialization in 5 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 15:15:55,923-[INFO ] {  "mensaje":"WSRT2021000000000001 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:16:08,236-[INFO ] {  "mensaje":"WSRT2021000000000001 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 15:16:14,171-[INFO ] {  "mensaje":"WSRT2021000000000002 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:16:34,075-[INFO ] {  "mensaje":"WSRT2021000000000002 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 15:18:21,039-[INFO ] {"mensaje": "Shutting down ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.shutdown()", "linea": 208 }
+2021-03-18 15:18:21,163-[INFO ] {  "mensaje":"Terminated WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$bf64a1bf.onShutDown()", "linea":103 }
+2021-03-18 15:18:40,879-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 30208 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 15:18:40,888-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 15:18:42,043-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 15:18:42,057-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:18:42,057-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 15:18:42,058-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 15:18:42,184-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:18:42,184-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1257 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 15:18:42,712-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$17e24d9b.idRequest()", "linea":46 }
+2021-03-18 15:18:43,437-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31228d83, org.springframework.security.web.context.SecurityContextPersistenceFilter@50dc49e1, org.springframework.security.web.header.HeaderWriterFilter@8f39224, org.springframework.web.filter.CorsFilter@22b82ddf, org.springframework.security.web.authentication.logout.LogoutFilter@4416e18d, mx.com.api.trknbr.configuration.AuthenticationFilter@28bf82d9, mx.com.api.trknbr.configuration.AuthorizationFilter@44ccd75c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3babcaed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b09ce57, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61a704d3, org.springframework.security.web.session.SessionManagementFilter@43e3a390, org.springframework.security.web.access.ExceptionTranslationFilter@7196a8f1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@750cd36d] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 15:18:43,508-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 15:18:44,095-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:18:44,121-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 15:18:44,124-[INFO ] {"mensaje": "Started runner in 3.595 seconds (JVM running for 5.508) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 15:18:54,788-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:18:54,789-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 15:18:54,795-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 15:19:02,631-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:24:14,727-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 2780 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 15:24:14,735-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 15:24:15,875-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 15:24:15,893-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:24:15,894-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 15:24:15,895-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 15:24:16,020-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:24:16,020-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1243 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 15:24:16,572-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$66cf1c4d.idRequest()", "linea":46 }
+2021-03-18 15:24:17,243-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@568f4faa, org.springframework.security.web.context.SecurityContextPersistenceFilter@3120495d, org.springframework.security.web.header.HeaderWriterFilter@4e4f4092, org.springframework.web.filter.CorsFilter@4c56644f, org.springframework.security.web.authentication.logout.LogoutFilter@516195cf, mx.com.api.trknbr.configuration.AuthenticationFilter@589dfa6f, mx.com.api.trknbr.configuration.AuthorizationFilter@43588265, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b75b890, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c6928c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f8667bb, org.springframework.security.web.session.SessionManagementFilter@4416e18d, org.springframework.security.web.access.ExceptionTranslationFilter@1fc0d9b4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@57e4b86c] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 15:24:17,324-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 15:24:17,905-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 15:24:17,944-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 15:24:17,946-[INFO ] {"mensaje": "Started runner in 3.588 seconds (JVM running for 5.479) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 15:24:40,679-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 15:24:40,680-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 15:24:40,687-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 15:24:52,320-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 15:25:23,778-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 16:53:49,461-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 16:58:58,050-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 17:05:21,857-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 8792 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 17:05:21,864-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 17:05:23,089-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 17:05:23,106-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:05:23,108-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 17:05:23,109-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 17:05:23,242-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:05:23,243-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1313 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 17:05:23,763-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$7082f75.idRequest()", "linea":46 }
+2021-03-18 17:05:24,524-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1de7f898, org.springframework.security.web.context.SecurityContextPersistenceFilter@538b3c88, org.springframework.security.web.header.HeaderWriterFilter@698d6d30, org.springframework.web.filter.CorsFilter@34fcd292, org.springframework.security.web.authentication.logout.LogoutFilter@4a660b34, mx.com.api.trknbr.configuration.AuthenticationFilter@63db743d, mx.com.api.trknbr.configuration.AuthorizationFilter@496cedbb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10e56da9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f235e8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b6def36, org.springframework.security.web.session.SessionManagementFilter@3407aa4f, org.springframework.security.web.access.ExceptionTranslationFilter@4cb00fa5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35e2b89f] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 17:05:24,591-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 17:05:25,186-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:05:25,214-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 17:05:25,215-[INFO ] {"mensaje": "Started runner in 3.691 seconds (JVM running for 5.592) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 17:07:10,425-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:07:10,425-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 17:07:10,432-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 17:07:17,955-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 17:09:01,420-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 17:12:03,201-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 14944 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 17:12:03,209-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 17:12:04,410-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 17:12:04,438-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:12:04,440-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 17:12:04,440-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 17:12:04,580-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:12:04,581-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1334 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 17:12:05,113-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$d0720ea9.idRequest()", "linea":46 }
+2021-03-18 17:12:05,778-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25ae1f80, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b170932, org.springframework.security.web.header.HeaderWriterFilter@5e69cf07, org.springframework.web.filter.CorsFilter@54f2df29, org.springframework.security.web.authentication.logout.LogoutFilter@61808ecd, mx.com.api.trknbr.configuration.AuthenticationFilter@6df791a4, mx.com.api.trknbr.configuration.AuthorizationFilter@655203e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42107318, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a3cf824, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@305552d6, org.springframework.security.web.session.SessionManagementFilter@2c2e3460, org.springframework.security.web.access.ExceptionTranslationFilter@1a7163e3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4052913c] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 17:12:05,843-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 17:12:06,457-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:12:06,484-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 17:12:06,485-[INFO ] {"mensaje": "Started runner in 3.688 seconds (JVM running for 5.551) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 17:12:36,888-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:12:36,888-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 17:12:36,894-[INFO ] {"mensaje": "Completed initialization in 5 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 17:16:56,507-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 17:19:58,778-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 17:22:26,207-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 4156 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 17:22:26,215-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 17:22:27,413-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 17:22:27,430-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:22:27,431-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 17:22:27,432-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 17:22:27,558-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:22:27,559-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1309 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 17:22:28,105-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$f7705e9e.idRequest()", "linea":46 }
+2021-03-18 17:22:28,863-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64bba0eb, org.springframework.security.web.context.SecurityContextPersistenceFilter@2c2e3460, org.springframework.security.web.header.HeaderWriterFilter@1a7163e3, org.springframework.web.filter.CorsFilter@577bfadb, org.springframework.security.web.authentication.logout.LogoutFilter@4fe8f2ae, mx.com.api.trknbr.configuration.AuthenticationFilter@25ae1f80, mx.com.api.trknbr.configuration.AuthorizationFilter@54f2df29, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b170932, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70c491b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6df791a4, org.springframework.security.web.session.SessionManagementFilter@5e69cf07, org.springframework.security.web.access.ExceptionTranslationFilter@796c68bf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25a290ee] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 17:22:28,934-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 17:22:29,583-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:22:29,624-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 17:22:29,627-[INFO ] {"mensaje": "Started runner in 3.762 seconds (JVM running for 5.755) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 17:22:37,929-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:22:37,930-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 17:22:37,936-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 17:22:44,816-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 17:25:27,102-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-18 17:27:22,500-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 13464 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-18 17:27:22,508-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-18 17:27:23,612-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-18 17:27:23,627-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:27:23,628-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-18 17:27:23,629-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-18 17:27:23,754-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:27:23,754-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1202 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-18 17:27:24,266-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$ff02df56.idRequest()", "linea":46 }
+2021-03-18 17:27:25,025-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70f4f89e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a785fd5, org.springframework.security.web.header.HeaderWriterFilter@1182413a, org.springframework.web.filter.CorsFilter@634aa81e, org.springframework.security.web.authentication.logout.LogoutFilter@23ea8830, mx.com.api.trknbr.configuration.AuthenticationFilter@74b1838, mx.com.api.trknbr.configuration.AuthorizationFilter@52d96367, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@362a561e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7196a8f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5be51aa, org.springframework.security.web.session.SessionManagementFilter@5b14f482, org.springframework.security.web.access.ExceptionTranslationFilter@7ead1d80, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25218a4d] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-18 17:27:25,100-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-18 17:27:25,701-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-18 17:27:25,741-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-18 17:27:25,743-[INFO ] {"mensaje": "Started runner in 3.591 seconds (JVM running for 5.662) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-18 17:27:29,880-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-18 17:27:29,881-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-18 17:27:29,887-[INFO ] {"mensaje": "Completed initialization in 5 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-18 17:27:36,795-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-18 17:28:08,354-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 17:23:31,069-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 17:28:32,448-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 17:36:45,191-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 23804 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-19 17:36:45,198-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-19 17:36:46,360-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-19 17:36:46,379-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 17:36:46,381-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 17:36:46,383-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-19 17:36:46,505-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 17:36:46,505-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1262 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-19 17:36:47,006-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$fc3f4f02.idRequest()", "linea":46 }
+2021-03-19 17:36:47,826-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2774dcf4, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c2b6acb, org.springframework.security.web.header.HeaderWriterFilter@b75b890, org.springframework.web.filter.CorsFilter@20b829d5, org.springframework.security.web.authentication.logout.LogoutFilter@afee63, mx.com.api.trknbr.configuration.AuthenticationFilter@7c5f29c6, mx.com.api.trknbr.configuration.AuthorizationFilter@4baf997, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a0f349, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49038f97, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5280688, org.springframework.security.web.session.SessionManagementFilter@439d545c, org.springframework.security.web.access.ExceptionTranslationFilter@3120495d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6df791a4] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-19 17:36:47,893-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-19 17:36:48,465-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 17:36:48,490-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-19 17:36:48,492-[INFO ] {"mensaje": "Started runner in 3.634 seconds (JVM running for 5.716) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-19 17:37:59,207-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 17:37:59,208-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-19 17:37:59,214-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-19 17:38:09,697-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 17:39:54,496-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 17:51:30,143-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 25180 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-19 17:51:30,149-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-19 17:51:31,247-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-19 17:51:31,261-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 17:51:31,262-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 17:51:31,263-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-19 17:51:31,393-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 17:51:31,394-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1209 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-19 17:51:31,948-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$37708723.idRequest()", "linea":46 }
+2021-03-19 17:51:32,665-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@426710f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@67e77f52, org.springframework.security.web.header.HeaderWriterFilter@4264beb8, org.springframework.web.filter.CorsFilter@5c5a91b4, org.springframework.security.web.authentication.logout.LogoutFilter@653a5967, mx.com.api.trknbr.configuration.AuthenticationFilter@5e37fb82, mx.com.api.trknbr.configuration.AuthorizationFilter@59ec7020, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d1bf7bf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fe8aaeb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23f60b7d, org.springframework.security.web.session.SessionManagementFilter@7cd3e0da, org.springframework.security.web.access.ExceptionTranslationFilter@5599b5bb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66234b0f] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-19 17:51:32,734-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-19 17:51:33,316-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 17:51:33,350-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-19 17:51:33,351-[INFO ] {"mensaje": "Started runner in 3.535 seconds (JVM running for 5.677) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-19 17:51:55,965-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 17:51:55,966-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-19 17:51:55,972-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-19 17:52:02,345-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 17:53:24,190-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 17:54:20,516-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 25296 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-19 17:54:20,527-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-19 17:54:21,691-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-19 17:54:21,706-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 17:54:21,707-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 17:54:21,708-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-19 17:54:21,873-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 17:54:21,873-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1290 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-19 17:54:22,415-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$bf64a1bf.idRequest()", "linea":46 }
+2021-03-19 17:54:23,112-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4adf3582, org.springframework.security.web.context.SecurityContextPersistenceFilter@44da7eb3, org.springframework.security.web.header.HeaderWriterFilter@2cee5365, org.springframework.web.filter.CorsFilter@57e4b86c, org.springframework.security.web.authentication.logout.LogoutFilter@3e151e1f, mx.com.api.trknbr.configuration.AuthenticationFilter@632241f5, mx.com.api.trknbr.configuration.AuthorizationFilter@64bba0eb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d512652, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3120495d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@577bfadb, org.springframework.security.web.session.SessionManagementFilter@56d6a1b1, org.springframework.security.web.access.ExceptionTranslationFilter@790ac3e0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5458c71e] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-19 17:54:23,184-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-19 17:54:23,830-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 17:54:23,862-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-19 17:54:23,864-[INFO ] {"mensaje": "Started runner in 3.694 seconds (JVM running for 5.531) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-19 17:56:31,625-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 17:56:31,625-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-19 17:56:31,632-[INFO ] {"mensaje": "Completed initialization in 6 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-19 17:56:40,805-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 17:59:44,720-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 17:59:53,682-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 18:00:04,674-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 19016 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-19 18:00:04,682-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-19 18:00:05,811-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-19 18:00:05,827-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:05,828-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 18:00:05,829-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-19 18:00:05,988-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 18:00:05,988-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1272 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-19 18:00:06,513-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$3dc55cd8.idRequest()", "linea":46 }
+2021-03-19 18:00:07,222-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2120bed, org.springframework.security.web.context.SecurityContextPersistenceFilter@2c579202, org.springframework.security.web.header.HeaderWriterFilter@650a1aff, org.springframework.web.filter.CorsFilter@566fe83c, org.springframework.security.web.authentication.logout.LogoutFilter@70c491b8, mx.com.api.trknbr.configuration.AuthenticationFilter@743bb39a, mx.com.api.trknbr.configuration.AuthorizationFilter@2de3b052, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11c7a0b4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59a09be, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f3c8b60, org.springframework.security.web.session.SessionManagementFilter@2b9e69fb, org.springframework.security.web.access.ExceptionTranslationFilter@44aa91e2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@21be14c2] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-19 18:00:07,290-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-19 18:00:07,871-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:07,887-[INFO ] {"mensaje": "Pausing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:07,888-[INFO ] {"mensaje": "Stopping service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 18:00:07,901-[INFO ] {"mensaje": "Stopping ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:07,901-[INFO ] {"mensaje": "Destroying ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:07,903-[INFO ] {"mensaje": "
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. -org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logMessage()", "linea": 136 }
+2021-03-19 18:00:07,906-[ERROR] {"mensaje": "
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8840 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8840 or configure this application to listen on another port.
+ -org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report()", "linea": 40 }
+2021-03-19 18:00:07,921-[INFO ] {"mensaje": "Shutting down ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.shutdown()", "linea": 208 }
+2021-03-19 18:00:08,022-[INFO ] {  "mensaje":"Terminated WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$3dc55cd8.onShutDown()", "linea":103 }
+2021-03-19 18:00:26,732-[INFO ] {  "mensaje":"WSRT2021000000000004 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 18:00:35,793-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 28492 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-19 18:00:35,799-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-19 18:00:36,773-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-19 18:00:36,786-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:36,787-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 18:00:36,787-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-19 18:00:36,918-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 18:00:36,919-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1091 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-19 18:00:37,444-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$ca329921.idRequest()", "linea":46 }
+2021-03-19 18:00:38,175-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68fc9167, org.springframework.security.web.context.SecurityContextPersistenceFilter@239b98cb, org.springframework.security.web.header.HeaderWriterFilter@7a1371, org.springframework.web.filter.CorsFilter@52c46334, org.springframework.security.web.authentication.logout.LogoutFilter@7ad889be, mx.com.api.trknbr.configuration.AuthenticationFilter@12fccff0, mx.com.api.trknbr.configuration.AuthorizationFilter@5d767218, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6def0632, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61808ecd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@510da778, org.springframework.security.web.session.SessionManagementFilter@3c28181b, org.springframework.security.web.access.ExceptionTranslationFilter@3c60c681, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6f8667bb] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-19 18:00:38,236-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-19 18:00:38,721-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:38,733-[INFO ] {"mensaje": "Pausing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:38,733-[INFO ] {"mensaje": "Stopping service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 18:00:38,737-[INFO ] {"mensaje": "Stopping ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:38,737-[INFO ] {"mensaje": "Destroying ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:00:38,739-[INFO ] {"mensaje": "
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. -org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logMessage()", "linea": 136 }
+2021-03-19 18:00:38,742-[ERROR] {"mensaje": "
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8840 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8840 or configure this application to listen on another port.
+ -org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report()", "linea": 40 }
+2021-03-19 18:00:38,755-[INFO ] {"mensaje": "Shutting down ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.shutdown()", "linea": 208 }
+2021-03-19 18:00:38,865-[INFO ] {  "mensaje":"Terminated WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$ca329921.onShutDown()", "linea":103 }
+2021-03-19 18:01:32,164-[INFO ] {  "mensaje":"WSRT2021000000000005 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 18:02:45,445-[INFO ] {  "mensaje":"WSRT2021000000000005 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 18:04:42,481-[INFO ] {  "mensaje":"WSRT2021000000000006 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 18:05:07,038-[INFO ] {  "mensaje":"WSRT2021000000000006 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-19 18:40:18,785-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 19216 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-19 18:40:18,797-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-19 18:40:19,973-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-19 18:40:19,988-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:40:19,989-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-19 18:40:19,990-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-19 18:40:20,141-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 18:40:20,142-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1273 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-19 18:40:21,569-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$e4b6ca63.idRequest()", "linea":46 }
+2021-03-19 18:40:27,688-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2fca3eb5, org.springframework.security.web.context.SecurityContextPersistenceFilter@524f5ea5, org.springframework.security.web.header.HeaderWriterFilter@4f235e8e, org.springframework.web.filter.CorsFilter@69eb544f, org.springframework.security.web.authentication.logout.LogoutFilter@44aa91e2, mx.com.api.trknbr.configuration.AuthenticationFilter@7cb29ea8, mx.com.api.trknbr.configuration.AuthorizationFilter@b5c902, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17134190, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d1bf7bf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e747037, org.springframework.security.web.session.SessionManagementFilter@29dcdd1c, org.springframework.security.web.access.ExceptionTranslationFilter@4b476233, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3957d88b] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-19 18:40:27,758-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-19 18:40:28,368-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-19 18:40:28,396-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-19 18:40:28,398-[INFO ] {"mensaje": "Started runner in 9.94 seconds (JVM running for 12.078) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-19 18:43:26,017-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-19 18:43:26,018-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-19 18:43:26,026-[INFO ] {"mensaje": "Completed initialization in 8 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-19 18:43:38,755-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":121 }
+2021-03-19 19:14:42,326-[INFO ] {  "mensaje":"WSRT2021000000000003 - ",  "metodo":"RestControllerTrkNbr.getTrackingNumber()", "linea":151 }
+2021-03-22 09:14:29,716-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 13092 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-22 09:14:29,723-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-22 09:14:30,998-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-22 09:14:31,014-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-22 09:14:31,015-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-22 09:14:31,016-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-22 09:14:31,143-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-22 09:14:31,144-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1376 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-22 09:14:31,729-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$dc8282b.idRequest()", "linea":46 }
+2021-03-22 09:14:32,476-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c063cb9, org.springframework.security.web.context.SecurityContextPersistenceFilter@15994b0b, org.springframework.security.web.header.HeaderWriterFilter@6704df84, org.springframework.web.filter.CorsFilter@63de4fa, org.springframework.security.web.authentication.logout.LogoutFilter@919086, mx.com.api.trknbr.configuration.AuthenticationFilter@26bb92e2, mx.com.api.trknbr.configuration.AuthorizationFilter@18907af2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a717d79, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28cb86b2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@658e7ead, org.springframework.security.web.session.SessionManagementFilter@53bb71e5, org.springframework.security.web.access.ExceptionTranslationFilter@7fc7152e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7606bd03] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-22 09:14:32,542-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-22 09:14:33,124-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-22 09:14:33,163-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-22 09:14:33,165-[INFO ] {"mensaje": "Started runner in 3.834 seconds (JVM running for 6.095) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-25 12:38:32,771-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 30032 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-25 12:38:32,779-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-25 12:38:33,435-[ERROR] {"mensaje": "Application run failed -org.springframework.boot.SpringApplication.reportFailure()", "linea": 826 }
+java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration.propertySourcesPlaceholderConfigurer
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:184) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:144) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:236) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:706) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at mx.com.api.trknbr.runner.main(runner.java:14) [classes/:?]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [mx.com.api.trknbr.configuration.AppConf] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:743) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[?:?]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:742) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:649) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1604) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:520) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:491) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:230) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:223) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:213) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:167) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:142) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	... 17 more
+Caused by: java.lang.NoClassDefFoundError: com/elektra/cadsumutils/logs/error/LogsPaqueterias
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:3166) ~[?:?]
+	at java.lang.Class.getDeclaredMethods(Class.java:2309) ~[?:?]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:743) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[?:?]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:742) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:649) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1604) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:520) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:491) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:230) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:223) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:213) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:167) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:142) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	... 17 more
+Caused by: java.lang.ClassNotFoundException: com.elektra.cadsumutils.logs.error.LogsPaqueterias
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[?:?]
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:3166) ~[?:?]
+	at java.lang.Class.getDeclaredMethods(Class.java:2309) ~[?:?]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:743) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[?:?]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:742) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:649) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1604) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:520) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:491) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.collectBeanNamesForType(OnBeanCondition.java:230) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:223) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getBeanNamesForType(OnBeanCondition.java:213) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchingBeans(OnBeanCondition.java:167) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:142) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	... 17 more
+2021-03-25 12:38:33,465-[WARN ] {"mensaje": "Unable to close ApplicationContext -org.springframework.boot.SpringApplication.handleRunFailure()", "linea": 808 }
+java.lang.IllegalStateException: Failed to introspect Class [mx.com.api.trknbr.configuration.AppConf] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:743) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[?:?]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:742) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:681) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:649) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1604) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:520) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:491) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:613) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:605) ~[spring-beans-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1242) ~[spring-context-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:869) ~[spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:857) ~[spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:844) ~[spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:795) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.4.RELEASE.jar:2.2.4.RELEASE]
+	at mx.com.api.trknbr.runner.main(runner.java:14) [classes/:?]
+Caused by: java.lang.NoClassDefFoundError: com/elektra/cadsumutils/logs/error/LogsPaqueterias
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:3166) ~[?:?]
+	at java.lang.Class.getDeclaredMethods(Class.java:2309) ~[?:?]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	... 21 more
+Caused by: java.lang.ClassNotFoundException: com.elektra.cadsumutils.logs.error.LogsPaqueterias
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[?:?]
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:3166) ~[?:?]
+	at java.lang.Class.getDeclaredMethods(Class.java:2309) ~[?:?]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463) ~[spring-core-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	... 21 more
+2021-03-25 12:42:42,528-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 10672 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-25 12:42:42,534-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-25 12:42:43,817-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-25 12:42:43,836-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-25 12:42:43,837-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-25 12:42:43,838-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-25 12:42:43,977-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-25 12:42:43,977-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1394 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-25 12:42:44,559-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$d73a8955.idRequest()", "linea":46 }
+2021-03-25 12:42:45,384-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f357c9d, org.springframework.security.web.context.SecurityContextPersistenceFilter@766b6d02, org.springframework.security.web.header.HeaderWriterFilter@11c7a0b4, org.springframework.web.filter.CorsFilter@fe42a09, org.springframework.security.web.authentication.logout.LogoutFilter@3c60c681, mx.com.api.trknbr.configuration.AuthenticationFilter@5458c71e, mx.com.api.trknbr.configuration.AuthorizationFilter@1ffd0114, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c4f4330, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a7163e3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b3857e2, org.springframework.security.web.session.SessionManagementFilter@653a5967, org.springframework.security.web.access.ExceptionTranslationFilter@2c579202, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31228d83] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-25 12:42:45,457-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-25 12:42:46,132-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-25 12:42:46,169-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-25 12:42:46,171-[INFO ] {"mensaje": "Started runner in 4.044 seconds (JVM running for 5.929) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-25 12:43:21,784-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-25 12:43:21,785-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-25 12:43:21,792-[INFO ] {"mensaje": "Completed initialization in 7 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-26 12:46:20,474-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 31488 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-26 12:46:20,481-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-26 12:46:21,633-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-26 12:46:21,648-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-26 12:46:21,649-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-26 12:46:21,649-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-26 12:46:21,793-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-26 12:46:21,793-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1277 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-26 12:46:22,482-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$6a7faebb.idRequest()", "linea":46 }
+2021-03-26 12:46:23,304-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2fee69a1, org.springframework.security.web.context.SecurityContextPersistenceFilter@2120bed, org.springframework.security.web.header.HeaderWriterFilter@22b82ddf, org.springframework.web.filter.CorsFilter@4d25f816, org.springframework.security.web.authentication.logout.LogoutFilter@43588265, mx.com.api.trknbr.configuration.AuthenticationFilter@6c6c2a73, mx.com.api.trknbr.configuration.AuthorizationFilter@6a4af081, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@743bb39a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37d0d373, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36b53f08, org.springframework.security.web.session.SessionManagementFilter@44ccd75c, org.springframework.security.web.access.ExceptionTranslationFilter@6121a7dd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@489f62a3] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-26 12:46:23,374-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-26 12:46:23,962-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-26 12:46:24,000-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-26 12:46:24,001-[INFO ] {"mensaje": "Started runner in 3.937 seconds (JVM running for 6.653) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-26 12:55:33,561-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-26 12:55:33,562-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-26 12:55:33,572-[INFO ] {"mensaje": "Completed initialization in 9 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }
+2021-03-26 16:15:01,040-[INFO ] {"mensaje": "Starting runner on EKT1368385 with PID 26924 (E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber\target\classes started by nroblerol in E:\Users\nroblerol\Documents\GitHub\nesrob\TrackingNumber) -mx.com.api.trknbr.runner.logStarting()", "linea": 55 }
+2021-03-26 16:15:01,046-[INFO ] {"mensaje": "The following profiles are active: container_dev -mx.com.api.trknbr.runner.logStartupProfileInfo()", "linea": 655 }
+2021-03-26 16:15:02,066-[INFO ] {"mensaje": "Tomcat initialized with port(s): 8840 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 92 }
+2021-03-26 16:15:02,081-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-26 16:15:02,083-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-03-26 16:15:02,084-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.30] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-03-26 16:15:02,208-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-26 16:15:02,208-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 1129 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 284 }
+2021-03-26 16:15:02,729-[INFO ] {  "mensaje":"Initializating WS - ",  "metodo":"AppConf$$EnhancerBySpringCGLIB$$f6bb622d.idRequest()", "linea":46 }
+2021-03-26 16:15:03,595-[INFO ] {"mensaje": "Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b458cd6, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e98032e, org.springframework.security.web.header.HeaderWriterFilter@7ef41ca2, org.springframework.web.filter.CorsFilter@4c2c44e8, org.springframework.security.web.authentication.logout.LogoutFilter@7b1a30e5, mx.com.api.trknbr.configuration.AuthenticationFilter@7103745, mx.com.api.trknbr.configuration.AuthorizationFilter@227a933d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@591be8aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26ca12a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25de8898, org.springframework.security.web.session.SessionManagementFilter@3e151e1f, org.springframework.security.web.access.ExceptionTranslationFilter@49038f97, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@328e4ec2] -org.springframework.security.web.DefaultSecurityFilterChain.<init>()", "linea": 43 }
+2021-03-26 16:15:03,663-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-03-26 16:15:04,255-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-8840"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-03-26 16:15:04,280-[INFO ] {"mensaje": "Tomcat started on port(s): 8840 (http) with context path '/wsGuia' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-03-26 16:15:04,281-[INFO ] {"mensaje": "Started runner in 3.569 seconds (JVM running for 5.224) -mx.com.api.trknbr.runner.logStarted()", "linea": 61 }
+2021-03-26 16:17:37,895-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wsGuia].log()", "linea": 173 }
+2021-03-26 16:17:37,896-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 525 }
+2021-03-26 16:17:37,901-[INFO ] {"mensaje": "Completed initialization in 5 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 547 }

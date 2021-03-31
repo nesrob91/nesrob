@@ -20,6 +20,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.EsquemaPago;
 import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.Remision;
@@ -46,6 +48,8 @@ public class RutaDaoImpl implements RutaDao{
     private LogsPaqueterias logger;
     @Autowired
     private ConfigBean configuration;
+    @Autowired
+    private AtomicLong idRequest;
     
     @Override
     public Integer getFolRut(int tipo, int almacen) {
@@ -67,7 +71,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1112001, 11, almacen, 0, 
                     "", 0, 0, 
                     "", 0, tipo, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -95,7 +99,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1112002, 11, almacen, 0, 
                     "", 0, 0, 
                     "", 0, tipo, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -206,7 +210,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1110002, 11, 0, 0, 
                     aplicacion, 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             fe=0;
@@ -307,7 +311,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1190001, 11, ori, 0, 
                     folrems.substring(0, 75), 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             fixed = null;
@@ -379,7 +383,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1190001, 11, ori, 0, 
                     folrems.substring(0, 75), 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             fixed = null;
@@ -422,7 +426,7 @@ public class RutaDaoImpl implements RutaDao{
                         folrems.substring(0, 75), 0, 0, 
                         "", 0, 0, 
                         "info_cd.EKT_GEN_RUTAS_PKG.pr_calculaFormulaLYDE returned no values", 
-                        getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                        getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
                 }catch(Exception ex){
                 }
             }else{
@@ -432,7 +436,7 @@ public class RutaDaoImpl implements RutaDao{
                             (folrems.length()>75?folrems.substring(0, 75):folrems), 0, 0, 
                             "", 0, 0, 
                             result.get("MSG").toString(), 
-                            getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                            getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
                     }catch(Exception ex){
                         System.out.println("Error : " + result.get("MSG"));
                     }
@@ -452,7 +456,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1190001, 11, ori, 0, 
                     folrems.substring(0, 75), 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             fixed = null;
@@ -536,7 +540,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1190001, 11, emisor, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             iva=-1;
@@ -561,7 +565,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1190001, 11, 0, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -601,7 +605,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1110001, 11, origen, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             kmsTR.put("error",0.0);
@@ -629,7 +633,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1110001, 11, origen, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }
@@ -748,7 +752,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1113001, 11, origen, 0, 
                     folrut+"", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             insert = false;
@@ -794,7 +798,7 @@ public class RutaDaoImpl implements RutaDao{
                 logger.insertaError(1113002, 11, origen, 0, 
                     folrut+"", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             insert = false;
@@ -803,20 +807,20 @@ public class RutaDaoImpl implements RutaDao{
     }
     
     @Override
-    public boolean cancelTranrut(Integer origen, List<String> rutas){
+    public boolean cancelTranrut(Integer origen, String ruta, Integer usuario){
         String sql="update info_cd.tranrut set status = 'C' where origen = :origen and folrut in (:foldoc)";
         Map<String,Object> param=new HashMap<>();
         param.put("origen",origen);
-        param.put("foldoc",rutas);
+        param.put("foldoc",ruta);
         return sccpConnection.update(sql, param)>0;
     }
 
     @Override
-    public boolean cancelCtlflt(Integer origen, List<String> rutas) {
+    public boolean cancelCtlflt(Integer origen, String ruta, Integer usuario) {
         String sql = "update info_cd.ctlflt set ftcans = 'C' where fttdao = :origen and ftruta in (:foldoc)  and fttope = 3";
         Map<String,Object> param=new HashMap<>();
         param.put("origen",origen);
-        param.put("foldoc",rutas);
+        param.put("foldoc",ruta);
         return sccpConnection.update(sql, param)>0;
     }
 
@@ -824,6 +828,25 @@ public class RutaDaoImpl implements RutaDao{
     public List<EsquemaPago> getConceptosPago(Integer origen, Integer destino, Integer proveedor) {
         return null;
     }
-    
-    
+
+    @Override
+    public List<Map<String, Object>> getStatRoute(Integer origen, String ruta) {
+        return null;
+    }
+
+    @Override
+    public boolean insEntregaTienda(EntregaTienda entrega) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean insEntregaTiendaBit(EntregaTienda entrega) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean updtEntregaTienda(EntregaTienda entrega) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
 }

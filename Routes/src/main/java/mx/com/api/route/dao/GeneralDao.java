@@ -7,7 +7,9 @@ package mx.com.api.route.dao;
 
 import java.util.List;
 import java.util.Map;
+import mx.com.api.route.beans.Almacen;
 import mx.com.api.route.beans.SKU;
+import mx.com.api.route.beans.User;
 import mx.com.api.route.beans.Usuario;
 
 /**
@@ -21,5 +23,7 @@ public interface GeneralDao {
     public Usuario getInfoUsuario(Integer user);
     public String getCeCo(boolean isDist, Integer ori, Integer des, String aplicacion, String vChar, boolean tda);
     public String getSysdate();
-    public Integer getIdSapAlmn(Integer idManh);
+    public Almacen getInfoAlmn(Integer idAlm);
+    public User findByUsername(String user);
+    public boolean saveByUsername(User user);
 }

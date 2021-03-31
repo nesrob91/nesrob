@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 import mx.com.api.route.configuration.ConfigBean;
 import mx.com.api.route.beans.Transporte;
 import mx.com.api.route.beans.Unidad;
@@ -34,6 +35,8 @@ public class TransporteDaoImpl implements TransporteDao{
     private LogsPaqueterias logger;
     @Autowired
     private ConfigBean configuration;
+    @Autowired
+    private AtomicLong idRequest;
     
     @Override
     public List<Transporte> getTransportes(Integer almacen, Integer transporte) {
@@ -65,7 +68,7 @@ public class TransporteDaoImpl implements TransporteDao{
                 logger.insertaError(1150001, 11, almacen, 0, 
                     ""+transporte, 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             list=null;
@@ -111,7 +114,7 @@ public class TransporteDaoImpl implements TransporteDao{
                 logger.insertaError(1150001, 11, almacen, 0, 
                     ""+proveedor, 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             disp="OCUPADO";
@@ -139,7 +142,7 @@ public class TransporteDaoImpl implements TransporteDao{
                 logger.insertaError(1110001, 11, almn, 0, 
                     "", 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             tiempo=null;
@@ -183,7 +186,7 @@ public class TransporteDaoImpl implements TransporteDao{
                 logger.insertaError(1150001, 11, almacen, 0, 
                     ""+unidad, 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
             list=null;
@@ -211,7 +214,7 @@ public class TransporteDaoImpl implements TransporteDao{
                 logger.insertaError(1110001, 11, ori, 0, 
                     folrems.substring(0, 75), 0, 0, 
                     "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
             }catch(Exception ex){
             }
         }

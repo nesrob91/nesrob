@@ -14,11 +14,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicLong;
 import mx.com.api.route.dao.GeneralDao;
 import mx.com.api.route.dao.RutaDao;
 import mx.com.api.route.dao.TiendaDao;
 import mx.com.api.route.dao.TransporteDao;
 import mx.com.api.route.beans.DetalleRem;
+import mx.com.api.route.beans.EntregaTienda;
 import mx.com.api.route.beans.Remision;
 import mx.com.api.route.beans.SKU;
 import mx.com.api.route.beans.Transporte;
@@ -43,6 +45,8 @@ public class RutaServiceImpl implements RutaService{
     private TiendaDao tiendaDao;
     @Autowired
     private LogsPaqueterias logger;
+    @Autowired
+    private AtomicLong idRequest;
 
     @Override
     public Integer getFolRut(int tipo, int almacen) {
@@ -569,7 +573,7 @@ public class RutaServiceImpl implements RutaService{
                 String[] s=e.getMessage().split(":");
                 result.put("Message",s[0]+"Fallo al registrar ruta");
                 logger.insertaError(1110002, 11, 9971, 0, "", 0, 0, "", 0, 0, 
-                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.getMessage(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
                 
             }catch(Exception ex){
                 result.put("Message", "GRCT0:Fallo al registrar ruta");
@@ -621,20 +625,31 @@ public class RutaServiceImpl implements RutaService{
     }
     
     @Override
-    public boolean cancelTranrut(Integer origen, List<String> rutas){
+    public boolean cancelTranrut(Integer origen, String ruta, Integer usuario){
         try{
-            if(rutasDao.cancelTranrut(origen, rutas)){
-                rutasDao.cancelCtlflt(origen, rutas);
+            if(rutasDao.cancelTranrut(origen, ruta, usuario)){
+                rutasDao.cancelCtlflt(origen, ruta, usuario);
                 return true;
             }else
                 return false;
         }catch(Exception e){
             try{
                 logger.insertaError(1110002, 11, origen, 0, "", 0, 0, "", 0, 0, 
-                    e.toString(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");
+                    e.toString(), getClass().getName()+"."+new Object(){}.getClass().getEnclosingMethod().getName(), "");//, idRequest.toString(), "","");
                 
             }catch(Exception ex){}
             return false;
         }
     }
+
+    @Override
+    public Map<String, Object> getStatRut(Integer origen, String ruta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean updtEntregaTienda(EntregaTienda entrega) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
