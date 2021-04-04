@@ -1,0 +1,64 @@
+
+2021-04-03 21:26:44,513-[INFO ] {"mensaje": "Starting AplicationMSD on EKT1368385 with PID 16944 (E:\Users\nroblerol\Documents\NetBeansProjects\MSD-QB\target\classes started by nroblerol in E:\Users\nroblerol\Documents\NetBeansProjects\MSD-QB) -mx.com.elektra.msd.qb.AplicationMSD.logStarting()", "linea": 50 }
+2021-04-03 21:26:44,521-[INFO ] {"mensaje": "No active profile set, falling back to default profiles: default -mx.com.elektra.msd.qb.AplicationMSD.logStartupProfileInfo()", "linea": 675 }
+2021-04-03 21:26:46,024-[INFO ] {"mensaje": "Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$928e671c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) -org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization()", "linea": 330 }
+2021-04-03 21:26:46,678-[INFO ] {"mensaje": "Tomcat initialized with port(s): 10444 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 90 }
+2021-04-03 21:26:46,714-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-10444"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-04-03 21:26:46,732-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-04-03 21:26:46,733-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.17] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-04-03 21:26:46,903-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log()", "linea": 173 }
+2021-04-03 21:26:46,904-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 2329 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 296 }
+2021-04-03 21:26:47,507-[INFO ] {  "mensaje":"****************** Configurando MSD-QB 1.0.0 ****************** - ",  "metodo":"ApplicationSetup$$EnhancerBySpringCGLIB$$ab6747cb.init()", "linea":48 }
+2021-04-03 21:26:47,936-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-04-03 21:26:48,380-[INFO ] {"mensaje": "Exposing 2 endpoint(s) beneath base path '/actuator' -org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver.<init>()", "linea": 59 }
+2021-04-03 21:26:48,447-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-10444"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-04-03 21:26:48,505-[INFO ] {"mensaje": "Tomcat started on port(s): 10444 (http) with context path '' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-04-03 21:26:48,509-[INFO ] {"mensaje": "Started AplicationMSD in 4.462 seconds (JVM running for 5.968) -mx.com.elektra.msd.qb.AplicationMSD.logStarted()", "linea": 59 }
+2021-04-03 21:27:18,717-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log()", "linea": 173 }
+2021-04-03 21:27:18,719-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 524 }
+2021-04-03 21:27:18,729-[INFO ] {"mensaje": "Completed initialization in 10 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 546 }
+2021-04-03 21:27:18,808-[INFO ] {"mensaje": "HikariPool-1 - Starting... -com.zaxxer.hikari.HikariDataSource.getConnection()", "linea": 110 }
+2021-04-03 21:27:18,818-[WARN ] {"mensaje": "Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation. -com.zaxxer.hikari.util.DriverDataSource.<init>()", "linea": 68 }
+2021-04-03 21:27:19,326-[INFO ] {"mensaje": "HikariPool-1 - Start completed. -com.zaxxer.hikari.HikariDataSource.getConnection()", "linea": 123 }
+2021-04-03 21:37:00,172-[INFO ] {"mensaje": "Starting AplicationMSD on EKT1368385 with PID 32712 (E:\Users\nroblerol\Documents\NetBeansProjects\MSD-QB\target\classes started by nroblerol in E:\Users\nroblerol\Documents\NetBeansProjects\MSD-QB) -mx.com.elektra.msd.qb.AplicationMSD.logStarting()", "linea": 50 }
+2021-04-03 21:37:00,179-[INFO ] {"mensaje": "No active profile set, falling back to default profiles: default -mx.com.elektra.msd.qb.AplicationMSD.logStartupProfileInfo()", "linea": 675 }
+2021-04-03 21:37:01,616-[INFO ] {"mensaje": "Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c2f6d3ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) -org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization()", "linea": 330 }
+2021-04-03 21:37:02,259-[INFO ] {"mensaje": "Tomcat initialized with port(s): 10444 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 90 }
+2021-04-03 21:37:02,295-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-10444"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-04-03 21:37:02,313-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-04-03 21:37:02,314-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.17] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-04-03 21:37:02,472-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log()", "linea": 173 }
+2021-04-03 21:37:02,474-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 2240 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 296 }
+2021-04-03 21:37:03,170-[INFO ] {  "mensaje":"****************** Configurando MSD-QB 1.0.0 ****************** - ",  "metodo":"ApplicationSetup$$EnhancerBySpringCGLIB$$dbcfb47d.init()", "linea":48 }
+2021-04-03 21:37:03,635-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-04-03 21:37:04,148-[INFO ] {"mensaje": "Exposing 2 endpoint(s) beneath base path '/actuator' -org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver.<init>()", "linea": 59 }
+2021-04-03 21:37:04,220-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-10444"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-04-03 21:37:04,259-[INFO ] {"mensaje": "Tomcat started on port(s): 10444 (http) with context path '' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-04-03 21:37:04,265-[INFO ] {"mensaje": "Started AplicationMSD in 4.553 seconds (JVM running for 5.969) -mx.com.elektra.msd.qb.AplicationMSD.logStarted()", "linea": 59 }
+2021-04-03 21:37:44,451-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log()", "linea": 173 }
+2021-04-03 21:37:44,452-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 524 }
+2021-04-03 21:37:44,464-[INFO ] {"mensaje": "Completed initialization in 12 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 546 }
+2021-04-03 21:37:44,537-[INFO ] {"mensaje": "HikariPool-1 - Starting... -com.zaxxer.hikari.HikariDataSource.getConnection()", "linea": 110 }
+2021-04-03 21:37:44,547-[WARN ] {"mensaje": "Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation. -com.zaxxer.hikari.util.DriverDataSource.<init>()", "linea": 68 }
+2021-04-03 21:37:44,997-[INFO ] {"mensaje": "HikariPool-1 - Start completed. -com.zaxxer.hikari.HikariDataSource.getConnection()", "linea": 123 }
+2021-04-03 21:53:36,818-[INFO ] {"mensaje": "Starting AplicationMSD on EKT1368385 with PID 29036 (E:\Users\nroblerol\Documents\NetBeansProjects\MSD-QB\target\classes started by nroblerol in E:\Users\nroblerol\Documents\NetBeansProjects\MSD-QB) -mx.com.elektra.msd.qb.AplicationMSD.logStarting()", "linea": 50 }
+2021-04-03 21:53:36,827-[INFO ] {"mensaje": "No active profile set, falling back to default profiles: default -mx.com.elektra.msd.qb.AplicationMSD.logStartupProfileInfo()", "linea": 675 }
+2021-04-03 21:53:38,321-[INFO ] {"mensaje": "Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f54ee577] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) -org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization()", "linea": 330 }
+2021-04-03 21:53:39,005-[INFO ] {"mensaje": "Tomcat initialized with port(s): 10444 (http) -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize()", "linea": 90 }
+2021-04-03 21:53:39,038-[INFO ] {"mensaje": "Initializing ProtocolHandler ["http-nio-10444"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-04-03 21:53:39,053-[INFO ] {"mensaje": "Starting service [Tomcat] -org.apache.catalina.core.StandardService.log()", "linea": 173 }
+2021-04-03 21:53:39,054-[INFO ] {"mensaje": "Starting Servlet engine: [Apache Tomcat/9.0.17] -org.apache.catalina.core.StandardEngine.log()", "linea": 173 }
+2021-04-03 21:53:39,216-[INFO ] {"mensaje": "Initializing Spring embedded WebApplicationContext -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log()", "linea": 173 }
+2021-04-03 21:53:39,217-[INFO ] {"mensaje": "Root WebApplicationContext: initialization completed in 2328 ms -org.springframework.web.context.ContextLoader.prepareWebApplicationContext()", "linea": 296 }
+2021-04-03 21:53:39,927-[INFO ] {  "mensaje":"****************** Configurando MSD-QB 1.0.0 ****************** - ",  "metodo":"ApplicationSetup$$EnhancerBySpringCGLIB$$e27c626.init()", "linea":48 }
+2021-04-03 21:53:40,296-[INFO ] {"mensaje": "Initializing ExecutorService 'applicationTaskExecutor' -org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor.initialize()", "linea": 171 }
+2021-04-03 21:53:40,915-[INFO ] {"mensaje": "Exposing 2 endpoint(s) beneath base path '/actuator' -org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver.<init>()", "linea": 59 }
+2021-04-03 21:53:41,011-[INFO ] {"mensaje": "Starting ProtocolHandler ["http-nio-10444"] -org.apache.coyote.http11.Http11NioProtocol.log()", "linea": 173 }
+2021-04-03 21:53:41,052-[INFO ] {"mensaje": "Tomcat started on port(s): 10444 (http) with context path '' -org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start()", "linea": 204 }
+2021-04-03 21:53:41,056-[INFO ] {"mensaje": "Started AplicationMSD in 4.714 seconds (JVM running for 6.296) -mx.com.elektra.msd.qb.AplicationMSD.logStarted()", "linea": 59 }
+2021-04-03 21:56:17,177-[INFO ] {"mensaje": "Initializing Spring DispatcherServlet 'dispatcherServlet' -org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log()", "linea": 173 }
+2021-04-03 21:56:17,178-[INFO ] {"mensaje": "Initializing Servlet 'dispatcherServlet' -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 524 }
+2021-04-03 21:56:17,192-[INFO ] {"mensaje": "Completed initialization in 14 ms -org.springframework.web.servlet.DispatcherServlet.initServletBean()", "linea": 546 }
+2021-04-03 21:56:17,302-[INFO ] {"mensaje": "HikariPool-1 - Starting... -com.zaxxer.hikari.HikariDataSource.getConnection()", "linea": 110 }
+2021-04-03 21:56:17,312-[WARN ] {"mensaje": "Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation. -com.zaxxer.hikari.util.DriverDataSource.<init>()", "linea": 68 }
+2021-04-03 21:56:17,909-[INFO ] {"mensaje": "HikariPool-1 - Start completed. -com.zaxxer.hikari.HikariDataSource.getConnection()", "linea": 123 }
